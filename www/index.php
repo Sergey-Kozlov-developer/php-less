@@ -13,41 +13,38 @@
 
     <?php
 
-    echo "<strong>GET array: </strong> <br>";
-    print_r($_GET);
+    echo "<strong>_POST array:</strong> <br>";
+    print_r($_POST);
     echo "<br><br><br>";
 
-    ?>
-    <!-- <form action="index.php" method="get">
-    <input type="text" name="country" placeholder="country"><br>
-    <input type="text" name="product" placeholder="product"><br>
-    <input type="text" name="brand" placeholder="brand"><br>
-    <input type="text" name="model" placeholder="model"><br>
-    <input type="text" name="color" placeholder="color"><br>
-    <input type="submit" value="Send Form">
-</form> -->
-    <form action="index.php" method="get">
-        <select name="brand" id="">
-            <option value="select">Выберите производителя</option>
-            <?php if ($_GET['brand'] == 'samsung'): ?>
-                <option value="samsung" selected>Samsung</option>
-            <?php else: ?>
-                <option value="samsung">samsung</option>
-            <?php endif; ?>
+    if (!empty($_POST)) {
 
-            <option value="samsung">samsung</option>
-            <option value="apple">apple</option>
-            <option value="htc">htc</option>
-            <option value="nokia">nokia</option>
-        </select>
-        <input type="submit" value="Send Form">
-    </form>
-    <?php
-    if (!empty($_GET)) {
-        echo "_GET не пустой";
-        echo "<h1>Телефоны марки " . $_GET["brand"] . "</h1>";
+        $message = "Вам пришло новое сообщение с сайта: \n "
+            . "Имя отправителя: " . $_POST['userName'] . "\n"
+            . "Email отправителя: " .  $_POST['userEmail'] . "\n"
+            . "Сообщение: \n  " . $_POST['message'];
+
+        $headers = "From: info@webcademy.ru";
+
+        $resultMail = mail("info@rightblog.ru", "Сообщение с сайта", $message, $headers);
+
+        if ($resultMail) {
+            echo "Сообщение отправлено успешно!";
+        } else {
+            echo "Что то пошло не так. Письмо не отправлено.";
+        }
     }
+
     ?>
+    <form action="index.php" method="post">
+        <input type="text" name="userName" placeholder="Ваше имя"><br>
+        <input type="text" name="userEmail" placeholder="Ваш Email"><br>
+        <textarea name="message" id="" cols="30" rows="10" placeholder="Сообщение"></textarea><br>
+        <input type="submit" value="Отправить форму!">
+    </form>
+
+
+
 </body>
 
 </html>
