@@ -5,6 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/www/about.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/css/main.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/Img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/avatar/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/avatar/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/bg/header-bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/down-arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/e-mail-envelope.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/facebook-letter-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/magnifying-glass.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/menu-button.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/right-arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/icons/twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/insta/insta-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/popular/popular-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/popular/popular-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/post/post-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/post/post-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/post/post-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/img/sign.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/base/_base.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_carousel.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_filter.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_footer.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_header.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_main.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_nav.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_post.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/blocks/_sidebar.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/libs/_normalize.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/less/main.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/post.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/header.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/navigation.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/sidebar.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/widgets/about.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/widgets/categories.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/widgets/insta.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/widgets/popular.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,28 +69,33 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Users\User\.config\herd-lite\bin\php.exe" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2uUfgrGTcyKNXIdBhG6a5tbv8ns" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;PHP Script.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -58,6 +113,8 @@
       <option name="presentableId" value="Default" />
       <updated>1742308191235</updated>
       <workItem from="1742308197526" duration="1088000" />
+      <workItem from="1742453645370" duration="664000" />
+      <workItem from="1742461886535" duration="2049000" />
     </task>
     <servers />
   </component>
