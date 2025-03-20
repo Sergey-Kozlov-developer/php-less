@@ -1,0 +1,54 @@
+.filter {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	.filter {
+		display: flex;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #ececec;
+		margin-bottom: 68px;
+	}
+}
+
+.filter__link {
+	color: #777777;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 32px;
+	text-transform: uppercase;
+	letter-spacing: 0.7px;
+	text-decoration: none;
+
+	&:first-child {
+		margin-right: 70px;
+	}
+
+	&:last-child {
+		margin-left: auto;
+	}
+}
+
+.filter__link--active {
+	color: #222222;
+	font-weight: 600;
+}
+
+.filter__link--all-posts {
+	position: relative;
+	margin-right: 15px;
+}
+
+.filter__link--all-posts:after {
+	position: absolute;
+	right: -15px;
+	top: 10px;
+	content: "";
+	width: 12px;
+	height: 14px;
+	display: block;
+	background-image: url(../img/icons/down-arrow.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
