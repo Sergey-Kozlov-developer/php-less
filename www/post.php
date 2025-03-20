@@ -1,42 +1,23 @@
+<?php
+require("./config.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Post - Travel Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Playfair+Display:400,400i,700,900i&amp;subset=cyrillic"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-</head>
+<?php
+$title = "Post - Travel Blog";
+include(ROOT . "templates/head.tpl");
+?>
+
 
 <body>
-    <nav class="nav">
-        <div class="nav__menu">
-            <a href="#">
-                <img src="img/icons/menu-button.svg" width="20" alt="" />
-            </a>
-        </div>
-        <div class="navigation">
-            <a href="index.php" class="navigation__item">Home</a>
-            <a href="about.php" class="navigation__item">About me</a>
-            <a href="post.php" class="navigation__item">Post</a>
-            <a href="contact.php" class="navigation__item">Contact</a>
-        </div>
-        <div class="nav__search">
-            <a href="#">
-                <img src="img/icons/magnifying-glass.svg" width="20" alt="" />
-            </a>
-        </div>
-    </nav>
+    <?php
+    include(ROOT . "templates/navigation.tpl");
+    include(ROOT . "templates/header.tpl");
 
-    <header class="header">
-        <div class="header__title">Travel Blog</div>
-        <div class="header__subtitle">Blog Template</div>
-    </header>
+
+    ?>
+
 
     <main class="container">
         <div class="content-wrapper">
@@ -82,134 +63,17 @@
 
             <!-- Sidebar -->
             <div class="sidebar">
-                <aside class="aside author">
-                    <div class="author__photo">
-                        <img src="img/avatar/img.png" alt="" />
-                    </div>
-                    <div class="author__name">Luis Faulkner</div>
-                    <div class="author__text">
-                        Ted fermentum sed felis ut eleifend. Integer laoreet
-                        massa sed leo rhoncus, non posuere eros varius.
-                    </div>
-                    <img src="img/sign.png" class="author__sign" alt="" />
-                </aside>
-
-                <aside class="aside">
-                    <div class="aside__header">Categories</div>
-                    <ul class="aside-list">
-                        <li class="aside-list__item">Travel</li>
-                        <li class="aside-list__item">Food</li>
-                        <li class="aside-list__item">Lifestyle</li>
-                        <li class="aside-list__item">Health & Fintness</li>
-                        <li class="aside-list__item">Minimalizam</li>
-                        <li class="aside-list__item">Recipes</li>
-                        <li class="aside-list__item">Review</li>
-                    </ul>
-                </aside>
-
-                <aside class="aside">
-                    <div class="aside__header">Popular Posts</div>
-
-                    <div class="popular-post popular-post--margin-top">
-                        <div class="popular-post__img">
-                            <img src="img/popular/popular-1.jpg" alt="" />
-                        </div>
-                        <div class="popular-post-content">
-                            <div class="popular-post__title">
-                                Sand Castle on the Beach
-                            </div>
-                            <div class="popular-post__author">
-                                by John Doe
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="popular-post">
-                        <div class="popular-post__img">
-                            <img src="img/popular/popular-2.jpg" alt="" />
-                        </div>
-                        <div class="popular-post-content">
-                            <div class="popular-post__title">
-                                How To Visit Neuschwan Castle By Train
-                            </div>
-                            <div class="popular-post__author">
-                                by Adam Rose
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-                <aside class="aside">
-                    <div class="aside__header aside__header--insta">
-                        Follow @Luisgarica
-                    </div>
-                    <div class="instagram">
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-1.jpg);
-                                "></div>
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-2.jpg);
-                                "></div>
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-3.jpg);
-                                "></div>
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-4.jpg);
-                                "></div>
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-5.jpg);
-                                "></div>
-                        <div class="instagram__img" style="
-                                    background-image: url(img/insta/insta-6.jpg);
-                                "></div>
-                    </div>
-                </aside>
+                <?php
+                include(ROOT . "templates/sidebar.tpl");
+                ?>
             </div>
             <!-- //Sidebar -->
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-nav-wrapper">
-                <div class="footer-nav">
-                    <a href="#" class="footer-nav__link footer-nav__link--active">HOME</a>
-                    <a href="#" class="footer-nav__link">ABOUT ME</a>
-                    <a href="#" class="footer-nav__link">POST</a>
-                    <a href="#" class="footer-nav__link">CONTACT</a>
-                </div>
-                <form class="footer-form" action="">
-                    <input class="footer-form__input" type="text" />
-                    <input class="footer-form__submit" type="submit" value="" />
-                </form>
-            </div>
-
-            <div class="footer-contacts">
-                <p>travel@gmail.com</p>
-                <p>(123) 456 789</p>
-            </div>
-
-            <div class="footer-line"></div>
-            <div class="footer-copyright">
-                <p>
-                    <i class="far fa-copyright"></i> Copyrights 2017.
-                    Travelblog By VictorThemes
-                </p>
-
-                <div class="social">
-                    <div class="social__icon">
-                        <a href="#" class="fab fa-facebook-f"></a>
-                    </div>
-                    <div class="social__icon">
-                        <a href="#" class="fab fa-twitter"></a>
-                    </div>
-                    <div class="social__icon">
-                        <a href="#" class="fab fa-instagram"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    include(ROOT . "templates/footer.tpl");
+    ?>
 </body>
 
 </html>
