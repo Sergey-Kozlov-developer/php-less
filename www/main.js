@@ -1,50 +1,34 @@
-const form = document.getElementById("contactForm");
-const success = document.getElementById("success");
-const error = document.getElementById("error");
-const errorsHolder = document.getElementById("errorsHolder");
+const form = document.getElementById('contactForm');
 
-form.addEventListener("submit", function (event) {
-	event.preventDefault();
-	console.log("SUBMIT!");
-	success.hidden = true;
-	error.hidden = true;
-	errorsHolder.innerHTML = "";
+form.addEventListener('submit', function (e) {
+	e.preventDefault();
+	console.log('Submit');
 
-	// собираем данные из формы with jQuery
-	const formData = $(this).serialize();
+	// Данные из формы
+	const formData = new FormData(form);
 
-	console.log(decodeURI(formData));
+	async function fetchData() {
+		const url = document.location.href;
+		console.log('url', url);
 
-	jQuery
-		.ajax({
-			method: "POST",
-			url: "http://localhost:443/mail.php",
-			data: formData,
-		})
-		.done(function (msg) {
-			console.log("Сработает в случае успеха");
-			console.log(msg); // JSON string
-			// получаем json из бэка
-			msg = JSON.parse(msg); // JSON Object
-
-			if (msg.status) {
-				// УСПЕХ
-				success.hidden = false;
-				form.reset();
-			} else {
-				// ОШИБКА
-				if (Array.isArray(msg.message)) {
-					// распечатываем ошибки по одному
-					console.log(msg.message);
-					msg.message.forEach((item) => {
-						const html = `
-						<div hidden id="error" class="alert alert-danger" role="alert">${item}</div>`;
-						errorsHolder.insertAdjacentHTML("beforeend", html);
-					});
-				} else {
-					// произошла ошибка при отправке
-					error.hidden = false;
-				}
-			}
+		const response = await fetch(url + '/mail.php', {
+			method: 'POST',
+			body: formData,
 		});
+
+		const result = await response.text();
+		console.log(result);
+
+		// На основе ответа от сервера показываем сообщения об Успехе или Ошибке
+		if (result === 'SUCCESS') {
+			document.getElementById('success').hidden = false;
+		} else {
+			document.getElementById('error').hidden = false;
+		}
+
+		// Очищаем поля формы
+		form.reset();
+	}
+
+	fetchData();
 });

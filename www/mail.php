@@ -1,62 +1,74 @@
 <?php
 
-if (
-	!empty(trim($_POST['name']))
-	&& !empty(trim($_POST['email']))
-	&& filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
-	&& !empty(trim($_POST['message']))
-) {
-	$mail_to = "info@mail.com"; // Email куда отправлено письмо
-	$email_from = "info@gmail.com"; // указываем от кого отправлено письмо email
-	$name_from = "Личный сайт портфолио"; // указываем от кого отправлено письмо, имя
-	$subject = "Сообщение с сайта"; // тема письма
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-	//формируем текст письма
-	$message = "Вам пришло новое сообщение с сайта: <br><br>\n" .
-		"<strong>Имя отправителя: </strong>" . strip_tags(trim($_POST["name"])) . "<br>\n" .
-		"<strong>Email отправителя: </strong>" . strip_tags(trim($_POST["email"])) . "<br>\n" .
-		"<strong>Сообщение: </strong>" . strip_tags(trim($_POST["message"]));
-	// формируем тему письма
-	$subject = "=?utf-8?B?" . base64_encode("Сообщение с сайта!") . "?=";
-	// формируем доп заголовки письма
-	$headers = "MIME-Version: 1.0" . PHP_EOL .
-		"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-		"From: " . "=?utf-8?B?" . base64_encode($name_from) . "?=" . "<" . $email_from . ">" . PHP_EOL .
-		"Reply-To: " . $email_from . PHP_EOL;
+// Автоподключение модулей
+require 'vendor/autoload.php';
 
-	$mailResult = mail($mail_to, $subject, $message, $headers);
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
-	// сообщаем на frontend об отправке. закодируем в JSON
+try {
 
-	if ($mailResult) {
-		$response = [
-			"status" => true,
-			"message" => "Отправлено успешно"
-		];
-	} else {
-		$response = [
-			"status" => false,
-			"message" => "Произошла ошибка"
-		];
-	}
-	echo json_encode($response);
-} else {
-	$response = [
-		"status" => false,
-		"message" => []
-	];
-	if (empty(trim($_POST["name"]))) {
-		$response["message"][] = "Поле 'имя' не может быть пустым";
-	}
-	if (empty(trim($_POST["email"]))) {
-		$response["message"][] = "Поле 'email' не может быть пустым";
-	}
-	if (!filter_var((trim($_POST["email"], FILTER_VALIDATE_EMAIL)))) {
-		$response["message"][] = "Введите верный формат email";
-	}
-	if (empty(trim($_POST["message"]))) {
-		$response["message"][] = "Поле 'сообщение' не может быть пустым";
+	// Настройки PHP mailer
+	$mail->CharSet = 'UTF-8';
+	$mail->setLanguage('ru', 'phpmailer/language/');
+	$mail->IsHTML(true);
+
+	// Настройки SMTP для Google
+	$mail->isSMTP();
+	$mail->Host = 'smtp.gmail.com';
+	$mail->SMTPAuth = true;
+	$mail->Username = 'yourmail@gmail.com'; // Ваш адрес электронной почты Gmail
+	$mail->Password = 'password'; // Пароль приложения
+	$mail->SMTPSecure = 'tls';
+	$mail->Port = 587;
+
+	// Настройки письма
+	$mail->setFrom('yourmail@gmail.ru', 'John Doe'); // От кого
+	$mail->addAddress('yourmail@gmail.com'); // Кому
+	$mail->Subject = 'Сообщение с сайта'; // Тема письма
+
+	// Формируем тело письма
+	$message = "<b>Сообщение от:</b> {$_POST['name']} <br>";
+	$message .= "<b>Email:</b>  {$_POST['email']} <br><br>";
+	$message .= "<b>Текст сообщения:</b> <br> {$_POST['message']}";
+
+	// Тело письма
+	$mail->Body = $message;
+
+	//Attachments
+	// Проверка: есть ли прикрепленные файлы, еслои есть - то добавляем их к письму
+	if (isset($_FILES['fileUpload']['name'])) {
+
+		$target_dir = __DIR__ . '/files/';
+
+		$total_files = count($_FILES['fileUpload']['name']);
+
+		for ($key = 0; $key < $total_files; $key++) {
+			// Check if file is selected
+			if (
+				isset($_FILES['fileUpload']['name'][$key])
+				&& $_FILES['fileUpload']['size'][$key] > 0
+			) {
+				$original_filename = $_FILES['fileUpload']['name'][$key];
+				$target = $target_dir . basename($original_filename); // site.ru/phphmail/files/01.jpg
+				$tmp  = $_FILES['fileUpload']['tmp_name'][$key]; // temp/01.jpg
+				move_uploaded_file($tmp, $target);
+
+				//Attachments
+				$mail->addAttachment($target, $original_filename);
+			}
+		}
 	}
 
-	echo json_encode($response);
+	// Отправка письма
+	$mail->send();
+
+	// В случае успеха, выводим 'SUCCESS'
+	echo 'SUCCESS';
+} catch (Exception $e) {
+	// В случае ошибки выводим сообщение об ошибке и содержимое ошибки
+	echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
