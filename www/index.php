@@ -1,11 +1,12 @@
 <?php
+require('config.php');
+require('database.php');
 
-// DB CONNECTION
-$link = mysqli_connect('database', 'root', 'tiger', 'filmoteka');
+$link = db_connect();
 
-if (mysqli_connect_error()) {
-	die("Ошибка подключения к базе данных.");
-}
+
+
+
 
 $errors = array();
 
