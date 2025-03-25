@@ -68,9 +68,32 @@
 $link = mysqli_connect('database', "root", "tiger", "mini-site");
 
 
-
+// connect BD
 if (mysqli_connect_error()) {
 	die("Ошибка подключения к базе данных");
+}
+// add user to DB from Form
+if (array_key_exists('add-user', $_POST)) { // array_key_exists возврщает tru/false есть ли ключ в массиве
+	// проверка заполненность полей
+	if ($_POST['name'] == '') {
+		echo "<p>Необходимо ввести имя</p>";
+	} else if ($_POST['password'] == '') {
+		echo "<p>Необходимо ввести пароль</p>";
+	} else if ($_POST['email'] == '') {
+		echo "<p>Необходимо ввести email</p>";
+	} else { // если все есть, то записываем значения из полей и вставляем в таблицу БД
+		$query = "INSERT INTO `users` (`name`,`password`,`email`) VALUES (
+		'" . mysqli_real_escape_string($link, $_POST['name']) . "',
+		'" . mysqli_real_escape_string($link, $_POST['password']) . "',
+		'" . mysqli_real_escape_string($link, $_POST['email']) . "'
+		)";
+		// выполняем запрос на вставку в таблицу
+		if (mysqli_query($link, $query)) {
+			echo "<p>Пользователь был добавлен!</p>";
+		} else {
+			echo "<p>Пользователь НЕ был добавлен! Возникла ошибка</p>";
+		}
+	}
 }
 
 // мини проект формы для добавления пользователей в бд и будем ее выводить
@@ -84,9 +107,11 @@ if ($result = mysqli_query($link, $query)) {
 }
 // print_r($users);
 
-// add user to DB from Form
+
 
 print_r($_POST);
+
+
 
 ?>
 <h1>ТАБЛИЦА С ПОЛЬЗОВАТЕЛЯМИ</h1>
@@ -120,7 +145,7 @@ print_r($_POST);
 <h2>ФОРМА ДОБАВЛЕНИЯ ПОЛЬЗОВАТЕЛЕЙ</h2>
 <form action="index.php" method="POST">
 	<input type="text" placeholder="Введите имя" name="name">
-	<input type="text" placeholder="Введите email" name="name">
-	<input type="password" placeholder="Введите пароль" name="name">
+	<input type="text" placeholder="Введите email" name="email">
+	<input type="password" placeholder="Введите пароль" name="password">
 	<input type="submit" value="Добавить пользователя" name="add-user">
 </form>
