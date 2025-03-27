@@ -1,0 +1,84 @@
+@media (prefers-color-scheme: dark) {
+	:root {
+		--page-bg: #172a33;
+		--text-color: #80b5cf;
+	}
+
+	.header {
+		background-color: #274858;
+	}
+
+	.logo {
+		color: #b1dff6;
+	}
+
+	.nav-link {
+		color: #b1dff6;
+	}
+
+	a {
+		color: #b1dff6;
+	}
+
+	a:hover,
+	.nav-link:hover {
+		color: #ffffff;
+	}
+
+	.title-1 {
+		color: #80b5cf;
+	}
+
+	.film, .card-small {
+		background: #274858;
+		box-shadow: 0px 5px 25px rgb(7 54 76);
+	}
+
+	.film__title, .card-small-title {
+		color: #fff;
+	}
+
+	.card-small__title {
+		color: #80b5cf;
+	}
+
+	.form {
+		background-color: #19323e;
+	}
+
+	.footer {
+		background-color: #0a171d;
+		color: #3c515b;
+	}
+
+	.form__input,
+	.form__textarea {
+		background-color: #274858;
+		border: 1px solid #6a8490;
+		color: #fff;
+	}
+
+	.form__input::placeholder {
+		color: #4a6e80;
+	}
+
+	.form__textarea {
+		line-height: 1.7;
+		min-height: 200px;
+		resize: vertical;
+	}
+
+	.form__label {
+		color: #476a7c;
+	}
+
+	.footer a {
+		color: #4a7487;
+	}
+
+	.btn--secondary {
+		background-color: transparent;
+		color: #ffffff;
+		border-color: #426271;
+	}
+}

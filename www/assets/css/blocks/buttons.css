@@ -1,0 +1,88 @@
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 120px;
+
+	padding: 0px 1em;
+	background: #485e70;
+	border-radius: 80px;
+	height: 2.375em;
+
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: #ffffff;
+	transition: background-color 0.2s ease-in;
+
+	cursor: pointer;
+}
+
+.btn--small {
+	font-size: 14px;
+	min-width: unset;
+}
+
+.btn:hover {
+	color: #fff;
+	background: #547691;
+}
+
+.btn:active,
+.btn:focus {
+	border: 1px solid rgb(33 150 243 / 100%);
+	box-shadow: 0 0 0 4px rgb(33 150 243 / 45%);
+}
+
+.btn--edit {
+	/* background: #ffc700; */
+	color: #ffffff;
+}
+
+.btn--edit:hover {
+	color: #fff;
+	/* background: #ffd94e; */
+	background: #2c2c2c;
+}
+
+.btn--delete {
+	background: #ce264b;
+	color: #ffffff;
+}
+
+.btn--delete:hover {
+	color: #fff;
+	background: #fa345f;
+}
+
+.btn--secondary {
+
+	border: 0.1875em solid #c4dfed;
+	background-color: #fff;
+
+	color: #2981b1;
+
+	transition: background-color 0.2s ease-in, color 0.2s ease-in,
+		border-color 0.2s ease-in;
+}
+
+.btn--secondary:hover {
+	/* background-color: #c4dfed; */
+	border: 3px solid #000;
+	background-color: #000;
+	color: #2981b1;
+
+	border-color: #c4dfed;
+	background-color: #c4dfed;
+
+}
+
+@media (max-width: 700px) {
+	.btn {
+		font-size: 14px;
+	}
+
+	.btn--small {
+		font-size: 12px;
+	}
+}

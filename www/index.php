@@ -1,27 +1,52 @@
-<?php 
+<?php
 
-require('config.php');
-require('database.php');
-$link = db_connect();
-require('models/films.php');
+require_once('config.php');
+require_once('./functions/all.php');
+require_once('./models/films/films.php');
 
-// Удаление фильма
-if ( @$_GET['action'] == 'delete') {
 
-	$reslut = film_delete($link, $_GET['id']);
+// соединение к БД и получаем данные из БД
+$films = get_all_films(@$_GET['genre']);
 
-	if ( $reslut ) {
-		$resultInfo = "<p>Фильм был удален!</p>";
-	} else {
-		$resultError = "<p>Что то пошло не так.</p>";
-	}
-}
+include(ROOT . 'templates/head.tpl');
+include(ROOT . 'templates/header.tpl');
 
-$films = films_all($link);
+?>
 
-include('views/head.tpl');
-include('views/notifications.tpl');
-include('views/index.tpl');
-include('views/footer.tpl');
+
+
+<main class="main">
+	<div class="container">
+
+		<?php include(ROOT . 'templates/nav-categories.tpl');  ?>
+
+		<?php if (empty($films)): ?>
+			<!-- Фильмов нет -->
+			<div class="alert-wrapper">
+				<div class="alert alert--warning">Фильмы для отображения отсутствуют!</div>
+			</div>
+		<?php else: ?>
+
+			<div class="cards-small-wrapper">
+
+				<?php
+
+				foreach ($films as $film) {
+
+					include(ROOT . 'templates/card-small.tpl');
+				}
+
+
+				?>
+
+			</div>
+		<?php endif; ?>
+
+		<?php include(ROOT . "templates/form-new.tpl"); ?>
+	</div>
+</main>
+
+<?php
+include(ROOT . 'templates/footer.tpl');
 
 ?>

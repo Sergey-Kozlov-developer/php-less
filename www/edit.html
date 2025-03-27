@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Фильмотека</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+
+	<link rel="stylesheet" href="./css/main.css" />
+</head>
+
+<body>
+	<header class="header">
+		<div class="container header__row">
+			<a href="index.html" class="logo">Фильмотека</a>
+			<nav class="nav">
+				<a href="index.html" class="nav-link">Главная</a>
+				<a href="new.html" class="nav-link">Добавить фильм</a>
+				<a href="login.html" class="nav-link">Вход</a>
+			</nav>
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="container">
+
+			<h1 class="title-1 mb-20">Редактировать фильм</h1>
+
+			<article class="film">
+
+				<img src="./img/film.jpg" alt="Film" class="film__img" />
+
+				<!-- Desc -->
+				<div class="film__desc">
+
+					<h1 class="film__title">
+						Властелин колец: Две крепости
+					</h1>
+
+					<div class="film__badges">
+						<div class="badge">Фентези</div>
+						<div class="badge">2002</div>
+					</div>
+
+					<div class="film__text">
+						<p>
+							Братство распалось, но Кольцо Всевластья должно
+							быть уничтожено. Фродо и Сэм вынуждены
+							довериться Голлуму, который взялся провести их к
+							вратам Мордора. Громадная армия Сарумана
+							приближается: члены братства и их союзники
+							готовы принять бой. Битва за Средиземье
+							продолжается.
+						</p>
+					</div>
+
+				</div>
+				<!-- // Desc -->
+			</article>
+
+			<form action="" class="form">
+
+				<label class="form__group">
+					<p class="form__label">Название фильма</p>
+					<input type="text" class="form__input" placeholder="Введите название фильма">
+				</label>
+
+				<div class="form__row">
+
+					<label class="form__group">
+						<p class="form__label">Жанр</p>
+						<select name="" id="" class="form__input form__input--select">
+							<option value="">Выберите жанр</option>
+							<option value="Документальный">Документальный</option>
+							<option value="Комедия">Комедия</option>
+							<option value="Драма">Драма</option>
+							<option value="Детектив">Детектив</option>
+							<option value="Фэнтези">Фэнтези</option>
+						</select>
+					</label>
+
+					<label class="form__group">
+						<p class="form__label">Год</p>
+						<input type="text" class="form__input" placeholder="Год премьеры">
+					</label>
+				</div>
+
+				<label class="form__group">
+					<p class="form__label">Описание фильма</p>
+					<textarea name="" id="" class="form__textarea" placeholder="Описание фильма"></textarea>
+				</label>
+
+				<label class="form__group">
+					<input type="file">
+				</label>
+
+				<div class="flex-btns-row">
+					<a href="index.html" class="btn btn--secondary">Отмена</a>
+					<button class="btn btn--edit">Сохранить</button>
+				</div>
+			</form>
+
+		</div>
+	</main>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="copyright">Проект с курса <a href="https://webcademy.ru/phpcourse" target="_blank">ВебКадеми</a> - выполнил Юрий Ключевский</p>
+		</div>
+	</footer>
+
+	<script src="./js/main.js"></script>
+</body>
+
+</html>
