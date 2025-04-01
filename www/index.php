@@ -4,6 +4,10 @@ require_once('config.php');
 require_once('./functions/all.php');
 require_once('./models/films/films.php');
 
+if ($_SERVER['REQUEST_METHOD'] === "POST") {
+	echo "Был POST запрос";
+	p($_POST);
+}
 
 // соединение к БД и получаем данные из БД
 $films = get_all_films(@$_GET['genre']);
