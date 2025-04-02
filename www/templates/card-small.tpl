@@ -10,12 +10,12 @@
 		<div class="badge"><?= $film['year']; ?></div>
 	</div>
 
+	<div class="card-small-readmore">
+		<a href="<?= HOST ?>film.php?id=<?= $film['id'] ?>" class="btn btn--secondary">Подробнее</a>
+	</div>
 	<?php
 	/*
 
-	 <div class="card-small-readmore">
-		 <a href="film.html" class="btn btn--secondary">Подробнее</a>
-	 </div>
  
 	 <div class="card-small-admin-btns">
 		 <a href="edit.html" class="btn btn--edit">Редактировать</a>

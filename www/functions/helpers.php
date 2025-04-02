@@ -12,3 +12,10 @@ function pd($var)
 	echo "</pre>";
 	die();
 }
+
+function trimPostValues()
+{
+	foreach ($_POST as $key => $value) {
+		$_POST[$key] = trim($value);
+	}
+}
