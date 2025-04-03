@@ -6,7 +6,7 @@ function delete_film($id)
 
 	// Проверяем, является ли $id числом
 	if (!is_numeric($id) || $id <= 0) {
-		return null;
+		return false;
 	}
 
 	// SQL-запрос с подготовленными параметрами
@@ -25,12 +25,12 @@ function delete_film($id)
 
 		if ($stmt->rowCount() === 0) {
 			error_log("Фильм с ID {$id} не найден.");
-			return null;
+			return false;
 		}
 
 		return true;
 	} catch (PDOException $e) {
 		error_log("Ошибка при удалении фильма: " . $e->getMessage());
-		return null;
+		return false;
 	}
 }
