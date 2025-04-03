@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="film__footer">
-			<!-- <a href="edit.html" class="btn btn--edit">Редактировать</a> -->
+			<a href="<?= HOST ?>edit.php?id=<?= $film['id'] ?>" class="btn btn--edit">Редактировать</a>
 			<a href="<?= HOST ?>delete.php?id=<?= $film['id'] ?>" class="btn btn--delete">Удалить</a>
 		</div>
 

@@ -2,7 +2,6 @@
 require_once('./config.php');
 require_once('./functions/all.php');
 require_once('./models/films/get_film.php');
-require_once('./models/films/delete_film.php');
 
 
 if (!isset($_GET['id'])) {
@@ -11,17 +10,13 @@ if (!isset($_GET['id'])) {
 }
 // удаление фильма если была отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-	$result = delete_film($_GET['id']);
-
-	if ($result) {
-		header('Location: ' . HOST);
-		exit;
-	} else {
-		$error = "Ошибка при удалении фильма";
-	}
 }
 
 $film = get_film($_GET['id']);
+
+if ($film) {
+	$page_title = $film['title'];
+}
 
 
 
@@ -34,16 +29,16 @@ include(ROOT . 'templates/header.tpl');
 
 		<?php echo isset($error) ? $error : null ?>
 
-		<?php if (isset($error)): ?>
+		<?php /* if (isset($error)): ?>
 			<div class="alert-wrapper">
 				<div class="alert alert--error"><?= $error ?></div>
 			</div>
-		<?php endif; ?>
+		<?php endif; */ ?>
 
 		<?php if ($film): ?>
 
-			<h1 class="title-1">Удалить фильм?</h1>
-			<?php include(ROOT . 'templates/form-delete.tpl'); ?>
+			<h1 class="title-1 mb-20">Редактировать фильм</h1>
+			<?php include(ROOT . 'templates/form-edit.tpl'); ?>
 
 		<?php else: ?>
 
