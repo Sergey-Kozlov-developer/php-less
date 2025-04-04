@@ -63,7 +63,7 @@
 	</label>
 
 	<label class="form__group">
-		<input type="file">
+		<input type="file" name="photo">
 	</label>
 
 	<div class="flex-btns-row">

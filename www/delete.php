@@ -11,6 +11,15 @@ if (!isset($_GET['id'])) {
 }
 // удаление фильма если была отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+	// удаление изображения фильма
+	$film = get_film($_GET['id']);
+	if (is_file(ROOT . 'data/films/' . $film['photo'])) {
+		unlink(ROOT . 'data/films/' . $film['photo']);
+	}
+
+
+	// удаление фильма из БД
 	$result = delete_film($_GET['id']);
 
 	if ($result) {

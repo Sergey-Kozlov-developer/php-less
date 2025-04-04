@@ -1,5 +1,15 @@
 <article class="card-small">
-	<img src="<?= HOST ?>assets/img/no-photo.png" alt="Film" class="card-small-img" />
+
+	<?php
+
+	$imgSrc = HOST . "assets/img/no-photo.png";
+	if ($film['photo']) {
+		$imgSrc = HOST . 'data/films/' . $film['photo'];
+	}
+
+	?>
+
+	<img src="<?= $imgSrc ?>" alt="Film" class="card-small-img" />
 
 	<h2 class="card-small-title">
 		<?= $film['title']; ?>

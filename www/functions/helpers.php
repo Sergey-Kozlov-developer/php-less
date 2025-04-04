@@ -19,3 +19,10 @@ function trimPostValues()
 		$_POST[$key] = trim($value);
 	}
 }
+
+function createDirectoryIfNotExists($path)
+{
+	if (!is_dir($path)) {
+		mkdir($path, 0777, true);
+	}
+}

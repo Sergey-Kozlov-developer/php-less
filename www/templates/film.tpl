@@ -1,6 +1,15 @@
 <article class="film">
 
-	<img src="<?= HOST ?>assets/img/no-photo.png" alt="<?= $film['title'] ?>" class="film__img" />
+	<?php
+
+	$imgSrc = HOST . "assets/img/no-photo.png";
+	if ($film['photo']) {
+		$imgSrc = HOST . 'data/films/' . $film['photo'];
+	}
+
+	?>
+
+	<img src="<?= $imgSrc ?>" alt="<?= $film['title'] ?>" class="film__img" />
 
 	<!-- Desc -->
 	<div class="film__desc">

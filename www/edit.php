@@ -9,7 +9,7 @@ if (!isset($_GET['id'])) {
 	exit();
 }
 
-// Удаление фильма если была отправлена форма
+// Редактирование фильма если была отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	trimPostValues();
@@ -32,11 +32,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$errors[] = "Год введен неправильно. Введите целое число";
 	}
 
+	// изображение фильма BD
+	$film = get_film($_GET['id']);
+	$file_name = $film['photo'];
+
+
+	// добавление изображения фильма
+	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
+		// загрузка фото
+		$file_name = upload_photo();
+	}
+
+	if (is_array($file_name)) {
+		$errors = array_merge($errors, $file_name);
+	}
+
+
 	if (empty($errors)) {
 		// Добавляем фильм в БД
-		$result = update_film($_GET['id'], $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description']);
+		$result = update_film($_GET['id'], $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $file_name);
 
 		if ($result === true) {
+			// удаление старой фотографии
+			if (is_file(ROOT . 'data/films/' . $film['photo'])) {
+				unlink(ROOT . 'data/films/' . $film['photo']);
+			}
+			// очиска POST
 			unset($_POST);
 		}
 	}
