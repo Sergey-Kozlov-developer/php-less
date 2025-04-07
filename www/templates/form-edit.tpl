@@ -53,7 +53,7 @@
 				type="text"
 				class="form__input"
 				placeholder="Год премьеры"
-				value="<? echo (isset($_POST['year']) && $_POST['year'] !== ""  && ctype_digit($_POST['year']) ? $_POST['year'] : $film['year']) ?>">>
+				value="<? echo (isset($_POST['year']) && $_POST['year'] !== ""  && ctype_digit($_POST['year']) ? $_POST['year'] : $film['year']) ?>">
 		</label>
 	</div>
 

@@ -29,6 +29,7 @@ include(ROOT . 'templates/header.tpl');
 	<div class="container">
 
 		<?php include(ROOT . 'templates/nav-categories.tpl');  ?>
+		<?php include(ROOT . "templates/errors.tpl"); ?>
 
 		<?php if (empty($films)): ?>
 			<!-- Фильмов нет -->

@@ -25,7 +25,7 @@ function update_film($id, $title, $genre, $year, $description, $photo_name)
 
 		// Если фильм не найден
 		if (!$currentFilm) {
-			return "Фильм с таким ID не найден";
+			return ["Фильм с таким ID не найден"];
 		}
 
 		// Проверяем, изменились ли данные
@@ -36,7 +36,7 @@ function update_film($id, $title, $genre, $year, $description, $photo_name)
 			$currentFilm['description'] === $description &&
 			$currentFilm['photo'] === $photo_name
 		) {
-			return "Данные фильма уже актуальны, обновление не требуется";
+			return ["Данные фильма уже актуальны, обновление не требуется"];
 		}
 
 		// SQL-запрос с подготовленными параметрами

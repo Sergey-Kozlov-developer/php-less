@@ -11,77 +11,63 @@ if (!isset($_GET['id'])) {
 
 // Редактирование фильма если была отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// валидация формы
-	trimPostValues();
-	// ошибки на незаполненность полей
-	$errors = validate_film_form($_POST);
-	// изображение фильма BD
-	$film = get_film($_GET['id']);
-	$file_name = $film['photo'];
-	// добавление изображения фильма
-	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
-		// загрузка фото
-		$file_name = upload_photo();
 
-		if (is_array($file_name)) {
-			$errors = array_merge($errors, $file_name);
-		} else {
+	function updateFilm()
+	{
+
+		// валидация формы
+		trimPostValues();
+		// ошибки на незаполненность полей
+		$errors = validate_film_form($_POST);
+		if (!empty($errors)) return $errors;
+
+		// изображение фильма BD
+		$film = get_film($_GET['id']);
+		$file_name = $film['photo'];
+		// добавление изображения фильма
+
+		if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
+			// загрузка фото
+			$file_name = upload_photo();
+			if (is_array($file_name) && !empty($errors)) return $file_name;
+
 			// создаем preview изображения
 			$photo_path = ROOT . 'data/films/' . $file_name;
 			$thumb_name = create_thumbs($photo_path);
-			if (is_array($file_name)) {
-				$errors = array_merge($errors, $file_name);
-			} else {
-				// создаем preview изображения
-				$photo_path = ROOT . 'data/films/' . $file_name;
-				$thumb_name = create_thumbs($photo_path);
+			if (is_array($thumb_name) && !empty($errors)) return $thumb_name;
+			if (!$thumb_name) return ['Ошибка при создании превью'];
 
-				if (is_array($thumb_name)) {
-					$errors = array_merge($errors, $thumb_name);
-				} elseif (!$thumb_name) {
-					$errors = array_merge($errors, ['Ошибка при создании превью']);
-				} else {
-					// удаление старой фотографии
-					if (is_file(ROOT . 'data/films/' . $film['photo'])) {
-						unlink(ROOT . 'data/films/' . $film['photo']);
-					}
-					if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
-						unlink(ROOT . 'data/films/min/' . $film['photo']);
-					}
-					if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
-						unlink(ROOT . 'data/films/big/' . $film['photo']);
-					}
-				}
+			// удаление старой фотографии
+			if (is_file(ROOT . 'data/films/' . $film['photo'])) {
+				unlink(ROOT . 'data/films/' . $film['photo']);
+			}
+			if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
+				unlink(ROOT . 'data/films/min/' . $film['photo']);
+			}
+			if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
+				unlink(ROOT . 'data/films/big/' . $film['photo']);
 			}
 		}
-	}
 
-	if (empty($errors)) {
 		// Добавляем фильм в БД
 		$result = update_film($_GET['id'], $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $file_name);
 
-		if ($result === true) {
-			// // удаление старой фотографии
-			// if (is_file(ROOT . 'data/films/' . $film['photo'])) {
-			// 	unlink(ROOT . 'data/films/' . $film['photo']);
-			// }
-			// if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
-			// 	unlink(ROOT . 'data/films/min/' . $film['photo']);
-			// }
-			// if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
-			// 	unlink(ROOT . 'data/films/big/' . $film['photo']);
-			// }
-			// очиска POST
-			unset($_POST);
-		}
+		return $result;
 	}
+
+	$result = updateFilm();
+
+	if (is_array($result) && !empty($result)) $_SESSION['errors'] = $result;
+
+	if ($result === false) $_SESSION['errors'][] = "Ошибка при редактировании фильма";
+
+	if ($result === true) $_SESSION['success'][] = "Фильм успешно обновлен";
 }
 
 $film = get_film($_GET['id']);
 
-if ($film) {
-	$page_title = $film['title'];
-}
+if ($film) $page_title = $film['title'];
+
 
 include(ROOT . 'templates/head.tpl');
 include(ROOT . 'templates/header.tpl');
@@ -90,28 +76,14 @@ include(ROOT . 'templates/header.tpl');
 <main class="main">
 	<div class="container">
 
-		<?php if (isset($result) && $result === true): ?>
-			<div class="alert-wrapper">
-				<div class="alert alert--success">Фильм успешно обновлён</div>
-			</div>
-		<?php elseif (isset($result) && $result === false): ?>
-			<div class="alert-wrapper">
-				<div class="alert alert--error">Ошибка обновления фильма</div>
-			</div>
-		<?php elseif (isset($result) && $result): ?>
-			<div class="alert-wrapper">
-				<div class="alert alert--warning"><?= $result ?></div>
-			</div>
-		<?php endif; ?>
+		<?php include(ROOT . "templates/errors.tpl"); ?>
 
 		<?php if ($film): ?>
-
 			<h1 class="title-1 mb-20">Редактировать фильм</h1>
 			<?php include(ROOT . 'templates/form-edit.tpl'); ?>
-
 		<?php else: ?>
 			<div class="alert-wrapper">
-				<div class="alert alert--warning">Такого фильма не существует</div>
+				<?php echo notify('Такого фильма не существует'); ?>
 			</div>
 		<?php endif; ?>
 
