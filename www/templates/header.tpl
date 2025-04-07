@@ -5,6 +5,13 @@
 			<a href="<?= HOST ?>" class="nav-link">Главная</a>
 			<a href="<?= HOST ?>new.php" class="nav-link">Добавить фильм</a>
 			<a href="#" class="nav-link">Вход</a>
+
+			<?php if (isset($_SESSION['theme']) && $_SESSION['theme'] === 'dark'): ?>
+				<a href="index.php?theme=light">☀️ Светлая тема</a>
+			<?php else: ?>
+				<a href="index.php?theme=dark">🌘 Тёмная тема</a>
+			<?php endif; ?>
+
 		</nav>
 	</div>
 </header>

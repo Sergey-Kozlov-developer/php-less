@@ -25,3 +25,6 @@ $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
 
 // макисмальный размер файла для загрузки
 define('MAX_UPLOAD_FILE_SIZE', 10 * 1024 * 1024);
+
+// Старт сессии
+session_start();

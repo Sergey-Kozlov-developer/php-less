@@ -10,8 +10,16 @@ require_once('./models/films/films.php');
 // соединение к БД и получаем данные из БД
 $films = get_all_films(@$_GET['genre']);
 
+// Переключение темы
+if (isset($_GET['theme']) && $_GET['theme'] === 'dark') {
+	$_SESSION['theme'] = 'dark';
+} else if (isset($_GET['theme']) && $_GET['theme'] === 'light') {
+	$_SESSION['theme'] = 'light';
+}
+
 include(ROOT . 'templates/head.tpl');
 include(ROOT . 'templates/header.tpl');
+
 
 ?>
 

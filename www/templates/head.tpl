@@ -24,7 +24,10 @@ require_once('./config.php');
 	<link rel="manifest" href="./assets/img/favicon/site.webmanifest">
 
 	<link rel="stylesheet" href="./assets/css/main.css" />
-	<!-- <link rel="stylesheet" href="./css/dark-theme.css" /> -->
+
+	<?php if (isset($_SESSION['theme']) && $_SESSION['theme'] === 'dark'): ?>
+		<link rel="stylesheet" href="./assets/css/dark-theme.css" />
+	<?php endif; ?>
 </head>
 
 <body>
