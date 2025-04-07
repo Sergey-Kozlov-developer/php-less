@@ -2,6 +2,7 @@
 
 function upload_photo()
 {
+	global $allowed_file_types, $allowed_extensions;
 
 	// Проверка на ошибки при загрузке файла
 	if ($_FILES['photo']['error'] !== UPLOAD_ERR_OK) {
@@ -10,20 +11,18 @@ function upload_photo()
 
 	// Проверка на тип файла
 	$file_type = mime_content_type($_FILES['photo']['tmp_name']);
-	$allowed_file_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 	if (!in_array($file_type, $allowed_file_types)) {
 		return ['Недопустимый тип файла. Загрузите изображение в формате jpg или png'];
 	}
 
 	// Проверка на расширение файла
-	$allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp']; // Разрешенные расширения
 	$extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 	if (!in_array(strtolower($extension), $allowed_extensions)) {
 		return ['Недопустимое расширение файла'];
 	}
 
 	// Проверка на размер файла
-	if ($_FILES['photo']['size'] > 10 * 1024 * 1024) {
+	if ($_FILES['photo']['size'] > MAX_UPLOAD_FILE_SIZE) {
 		return ['Файл слишком большой. Максимальный размер файла 10Мб'];
 	}
 

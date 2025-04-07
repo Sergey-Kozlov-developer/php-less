@@ -11,42 +11,21 @@ if (!isset($_GET['id'])) {
 
 // Редактирование фильма если была отправлена форма
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+	// валидация формы
 	trimPostValues();
-
-	$errors = array();
-
-	if ($_POST['title'] === '') {
-		$errors[] = "Необходимо ввести название фильма";
-	}
-
-	if (!isset($_POST['genre']) || $_POST['genre'] === '') {
-		$errors[] = "Необходимо выбрать жанр фильма";
-	}
-
-	if ($_POST['year'] === '') {
-		$errors[] = "Необходимо год фильма";
-	}
-
-	if (!ctype_digit($_POST['year'])) {
-		$errors[] = "Год введен неправильно. Введите целое число";
-	}
-
+	// ошибки на незаполненность полей
+	$errors = validate_film_form($_POST);
 	// изображение фильма BD
 	$film = get_film($_GET['id']);
 	$file_name = $film['photo'];
-
-
 	// добавление изображения фильма
 	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
 		// загрузка фото
 		$file_name = upload_photo();
 	}
-
 	if (is_array($file_name)) {
 		$errors = array_merge($errors, $file_name);
 	}
-
 
 	if (empty($errors)) {
 		// Добавляем фильм в БД

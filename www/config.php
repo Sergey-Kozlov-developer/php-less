@@ -18,3 +18,10 @@ $categories = [
 	"Фэнтези",
 	"Без категории"
 ];
+// Поддерживаемые типы изображений
+$allowed_file_types = ['image/jpeg', 'image/png', 'image/gif'];
+// Поддерживаемые расширения изображений
+$allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+
+// макисмальный размер файла для загрузки
+define('MAX_UPLOAD_FILE_SIZE', 10 * 1024 * 1024);
