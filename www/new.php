@@ -7,43 +7,48 @@ require_once('./models/films/create_film.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-	// Валидация формы
-	trimPostValues(); // убирает пробельные символы
-	// ошибки на незаполненность полей
-	$errors = validate_film_form($_POST);
-	// Работа с изображением фильма
-	$thumb_name = null;
-	// добавление изображения фильма
-	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
-		// загрузка фото
-		$file_name = upload_photo();
-		if (is_array($file_name)) {
-			$errors = array_merge($errors, $file_name);
-		} else {
+
+
+	function createFilm()
+	{
+
+		// Валидация формы
+		trimPostValues(); // убирает пробельные символы
+		// ошибки на незаполненность полей
+		$errors = validate_film_form($_POST);
+		if (!empty($errors)) return $errors;
+
+		// Работа с изображением фильма
+		$thumb_name = null;
+		// добавление изображения фильма
+		if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
+			// загрузка фото
+			$file_name = upload_photo();
+			if (is_array($file_name) && !empty($errors)) return $file_name;
+
 			// создаем preview изображения
 			$photo_path = ROOT . 'data/films/' . $file_name;
 			$thumb_name = create_thumbs($photo_path);
-
-			if (is_array($thumb_name)) {
-				$errors = array_merge($errors, $thumb_name);
-			} elseif (!$thumb_name) {
-				$errors = array_merge($errors, ['Ошибка при создании превью']);
-			}
+			if (is_array($thumb_name) && !empty($errors)) return $thumb_name;
+			if (!$thumb_name) return ['Ошибка при создании превью'];
 		}
-	}
-	// добавление фильма в БД
-	if (empty($errors)) {
+		// добавление фильма в БД
 		// добавляем фильм в БД
 		$result = create_film($_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $thumb_name);
+		if (is_array($result) && !empty($errors)) return $result;
 
-		if (is_array($result)) {
-			$errors = $result;
-		} else {
-			$filmID = $result;
+		if ($result) {
+			$_SESSION['success'][] = "Фильм успешно добавлен";
 			// очистка POST при успешном добавлении фильма
 			unset($_POST);
+			header('Location: ' . HOST . "film.php?id={$result}");
+			exit;
+		} else {
+			return ["Ошибка при добавлении фильма"];
 		}
 	}
+
+	$_SESSION['errors'] = createFilm();
 }
 $page_title = "Добавить фильм";
 
@@ -57,13 +62,7 @@ include(ROOT . 'templates/header.tpl');
 
 <main class="main">
 	<div class="container">
-		<?php if (isset($filmID)): ?>
-			<div class="alert-wrapper">
-				<div class="alert alert--success">Фильм был добавлен. ID фильма: <?= $filmID ?></div>
-			</div>
-		<?php endif; ?>
-
-
+		<?php include(ROOT . "templates/errors.tpl"); ?>
 		<?php include(ROOT . "templates/form-new.tpl"); ?>
 	</div>
 </main>

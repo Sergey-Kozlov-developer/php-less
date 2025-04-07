@@ -19,6 +19,7 @@ include(ROOT . 'templates/header.tpl');
 <main class="main">
 	<div class="container">
 		<?php include(ROOT . 'templates/nav-categories.tpl'); ?>
+		<?php include(ROOT . "templates/errors.tpl"); ?>
 
 		<?php if ($film): ?>
 			<?php include(ROOT . 'templates/film.tpl'); ?>

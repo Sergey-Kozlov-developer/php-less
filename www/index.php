@@ -33,7 +33,7 @@ include(ROOT . 'templates/header.tpl');
 		<?php if (empty($films)): ?>
 			<!-- Фильмов нет -->
 			<div class="alert-wrapper">
-				<div class="alert alert--warning">Фильмы для отображения отсутствуют!</div>
+				<?php echo notify("Фильмы для отображения отсутствуют!"); ?>
 			</div>
 		<?php else: ?>
 
