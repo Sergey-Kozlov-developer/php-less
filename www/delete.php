@@ -17,6 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 	if (is_file(ROOT . 'data/films/' . $film['photo'])) {
 		unlink(ROOT . 'data/films/' . $film['photo']);
 	}
+	if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
+		unlink(ROOT . 'data/films/min/' . $film['photo']);
+	}
+	if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
+		unlink(ROOT . 'data/films/big/' . $film['photo']);
+	}
 
 
 	// удаление фильма из БД

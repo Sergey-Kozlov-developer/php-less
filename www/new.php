@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 	// ошибки на незаполненность полей
 	$errors = validate_film_form($_POST);
 	// Работа с изображением фильма
-	$file_name = null;
+	$thumb_name = null;
 	// добавление изображения фильма
 	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
 		// загрузка фото
@@ -23,8 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 			// создаем preview изображения
 			$photo_path = ROOT . 'data/films/' . $file_name;
 			$thumb_name = create_thumbs($photo_path);
+
 			if (is_array($thumb_name)) {
 				$errors = array_merge($errors, $thumb_name);
+			} elseif (!$thumb_name) {
+				$errors = array_merge($errors, ['Ошибка при создании превью']);
 			}
 		}
 	}

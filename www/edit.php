@@ -22,9 +22,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (isset($_FILES['photo']['name']) && $_FILES['photo']['name'] !== '') {
 		// загрузка фото
 		$file_name = upload_photo();
-	}
-	if (is_array($file_name)) {
-		$errors = array_merge($errors, $file_name);
+
+		if (is_array($file_name)) {
+			$errors = array_merge($errors, $file_name);
+		} else {
+			// создаем preview изображения
+			$photo_path = ROOT . 'data/films/' . $file_name;
+			$thumb_name = create_thumbs($photo_path);
+			if (is_array($file_name)) {
+				$errors = array_merge($errors, $file_name);
+			} else {
+				// создаем preview изображения
+				$photo_path = ROOT . 'data/films/' . $file_name;
+				$thumb_name = create_thumbs($photo_path);
+
+				if (is_array($thumb_name)) {
+					$errors = array_merge($errors, $thumb_name);
+				} elseif (!$thumb_name) {
+					$errors = array_merge($errors, ['Ошибка при создании превью']);
+				} else {
+					// удаление старой фотографии
+					if (is_file(ROOT . 'data/films/' . $film['photo'])) {
+						unlink(ROOT . 'data/films/' . $film['photo']);
+					}
+					if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
+						unlink(ROOT . 'data/films/min/' . $film['photo']);
+					}
+					if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
+						unlink(ROOT . 'data/films/big/' . $film['photo']);
+					}
+				}
+			}
+		}
 	}
 
 	if (empty($errors)) {
@@ -32,10 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$result = update_film($_GET['id'], $_POST['title'], $_POST['genre'], $_POST['year'], $_POST['description'], $file_name);
 
 		if ($result === true) {
-			// удаление старой фотографии
-			if (is_file(ROOT . 'data/films/' . $film['photo'])) {
-				unlink(ROOT . 'data/films/' . $film['photo']);
-			}
+			// // удаление старой фотографии
+			// if (is_file(ROOT . 'data/films/' . $film['photo'])) {
+			// 	unlink(ROOT . 'data/films/' . $film['photo']);
+			// }
+			// if (is_file(ROOT . 'data/films/min/' . $film['photo'])) {
+			// 	unlink(ROOT . 'data/films/min/' . $film['photo']);
+			// }
+			// if (is_file(ROOT . 'data/films/big/' . $film['photo'])) {
+			// 	unlink(ROOT . 'data/films/big/' . $film['photo']);
+			// }
 			// очиска POST
 			unset($_POST);
 		}

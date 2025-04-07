@@ -4,7 +4,7 @@
 
 	$imgSrc = HOST . "assets/img/no-photo.png";
 	if ($film['photo']) {
-		$imgSrc = HOST . 'data/films/' . $film['photo'];
+		$imgSrc = HOST . 'data/films/min/' . $film['photo'];
 	}
 
 	?>
