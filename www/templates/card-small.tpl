@@ -24,10 +24,14 @@
 		<a href="<?= HOST ?>film.php?id=<?= $film['id'] ?>" class="btn btn--secondary">Подробнее</a>
 	</div>
 
-	<div class="card-small-admin-btns">
-		<a href="<?= HOST ?>edit.php?id=<?= $film['id'] ?>" class="btn btn--edit">Редактировать</a>
-		<a href="<?= HOST ?>delete.php?id=<?= $film['id'] ?>" class="btn btn--delete">Удалить</a>
-	</div>
+	<?php if (isAdmin()): ?>
+
+		<div class="card-small-admin-btns">
+			<a href="<?= HOST ?>edit.php?id=<?= $film['id'] ?>" class="btn btn--edit">Редактировать</a>
+			<a href="<?= HOST ?>delete.php?id=<?= $film['id'] ?>" class="btn btn--delete">Удалить</a>
+		</div>
+	<?php endif; ?>
+
 
 
 </article>

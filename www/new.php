@@ -4,6 +4,13 @@ require_once('config.php');
 require_once('./functions/all.php');
 require_once('./models/films/create_film.php');
 
+// проверка на админа
+if (!isAdmin()) {
+	$_SESSION['errors'][] = 'Доступ запрещен';
+	header('Location: ./login.php');
+	exit;
+}
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {

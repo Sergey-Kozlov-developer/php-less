@@ -4,6 +4,12 @@ require_once('./functions/all.php');
 require_once('./models/films/get_film.php');
 require_once('./models/films/update_film.php');
 
+// проверка на админа
+if (!isAdmin()) {
+	$_SESSION['errors'][] = 'Доступ запрещен';
+	header('Location: ./login.php');
+	exit;
+}
 if (!isset($_GET['id'])) {
 	header("Location: /");
 	exit();

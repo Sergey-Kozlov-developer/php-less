@@ -41,3 +41,10 @@ function notify($text, $type = 'warning')
 			echo "<div class='alert alert--warning'>{$text}</div>";
 	}
 }
+
+function isAdmin()
+{
+	if (isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin') return true;
+
+	return false;
+}

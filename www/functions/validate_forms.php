@@ -22,3 +22,17 @@ function validate_film_form($data)
 
 	return $errors;
 }
+
+function validate_login_form($data)
+{
+	$errors = array();
+
+	if ($data['username'] === '') {
+		$errors[] = "Необходимо ввести логин пользователя";
+	}
+	if ($data['password'] === '') {
+		$errors[] = "Необходимо ввести пароль пользователя";
+	}
+
+	return $errors;
+}
