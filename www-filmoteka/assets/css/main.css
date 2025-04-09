@@ -1,0 +1,102 @@
+@import './fonts/RubikMonoOne/stylesheet.css';
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+@import './base/reset.css';
+
+@import './blocks/buttons.css';
+
+@import './blocks/card-small.css';
+@import './blocks/film.css';
+
+@import './blocks/badge.css';
+@import './blocks/titles.css';
+@import './blocks/alerts.css';
+@import './blocks/form.css';
+@import './blocks/header.css';
+@import './blocks/categories.css';
+@import './blocks/footer.css';
+
+:root {
+	--container-width: 1000px;
+	--container-padding: 15px;
+
+	--font-main: 'Inter', sans-serif;
+	--font-accent: 'Rubik Mono One', sans-serif;
+
+	--page-bg: #fff;
+	--text-color: #000;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	min-height: 100vh;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+body {
+	font-family: var(--font-main);
+	background-color: var(--page-bg);
+	color: var(--text-color);
+}
+
+.main {
+	margin-bottom: 60px;
+}
+
+a {
+	color: #116bbf;
+}
+
+a:hover {
+	color: #1485ed;
+}
+
+input[type="file"] {
+	max-width: 100%;
+}
+
+.mt-20 {
+	margin-top: 20px !important;
+}
+
+.mt-40 {
+	margin-top: 40px !important;
+}
+
+.mb-20 {
+	margin-bottom: 20px !important;
+}
+
+.m-0 {
+	margin: 0 !important;
+}
+
+.mb-0 {
+	margin-bottom: 0 !important;
+}
+
+.none {
+	display: none !important;
+}
+
+.container {
+	padding: 0 var(--container-padding);
+	max-width: var(--container-width);
+	margin: 0 auto;
+}
+
+.back-wrapper {
+	margin-bottom: 40px;
+}
+
+textarea {
+	resize: vertical;
+}
