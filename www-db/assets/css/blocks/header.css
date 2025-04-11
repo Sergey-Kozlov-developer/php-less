@@ -1,0 +1,45 @@
+/* Header */
+
+.header {
+	padding: 20px 0 15px;
+	background-color: #e2eef4;
+	margin-bottom: 20px;
+}
+
+.header__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 30px;
+	row-gap: 10px;
+	flex-wrap: wrap;
+}
+
+.logo {
+	font-family: var(--font-accent);
+	font-style: normal;
+	font-weight: 400;
+	font-size: 28px;
+	text-transform: uppercase;
+	color: #000000;
+	letter-spacing: 0.1em;
+}
+
+.nav {
+	display: flex;
+	column-gap: 40px;
+
+	row-gap: 10px;
+	flex-wrap: wrap;
+}
+.nav-link {
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 20px;
+	color: #116bbf;
+}
+
+.nav-link:hover {
+	color: #1485ed;
+}
