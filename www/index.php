@@ -1,44 +1,33 @@
 <?php
-require "db.php";
 
-// создаем нове записи bd 
-$course = R::dispense('courses');
-$course->title = "Курс по верстке";
-$course->tuts = 10;
-$course->homework = 8;
-$course->level = "Для новичков";
-$course->title = "Курс по React";
-$course->tuts = 101;
-$course->homework = 8;
-$course->level = "Для новичков";
-$course->title = "Курс по Laravel";
-$course->tuts = 1034;
-$course->homework = 23;
-$course->level = "Для midle";
-R::store($course);
+require_once('config.php');
+require_once('db.php');
 
-// получение всех записей
-$courses = R::find('courses');
+/* -----------------
+// Router 
+-------------------*/
+// 1. подготовка строки с запросом для routes
+$uri = $_SERVER['REQUEST_URI'];
+$uri = rtrim($uri, "/");
+$uri = filter_var($uri, FILTER_SANITIZE_URL); // удаляет лишние символы, кроме допустимых в запросе
+$uri = substr($uri, 1); // удаление 1го слеша
+$uri = explode('?', $uri); // разбивает на массив по разделителю ? (в нашем случае знак ?)
 
-foreach ($courses as $course) {
-	echo "ID: " . $course->id . "<br>";
-	echo "Название : " . $course->title . "<br>";
-	echo "Кол-во уроков : " . $course->tuts . "<br>";
-	echo "Уровень: " . $course->level . "<br>";
-	echo "<hr>";
+// 2. routes
+switch ($uri[0]) {
+	case '':
+		require(ROOT . 'modules/main/index.php');
+		break;
+	case 'about':
+		require(ROOT . 'modules/about/index.php');
+		break;
+	case 'blog':
+		require(ROOT . 'modules/blog/index.php');
+		break;
+	case 'contacts':
+		require(ROOT . 'modules/contacts/index.php');
+		break;
+	default:
+		require(ROOT . 'modules/main/index.php');
+		break;
 }
-
-/// обновление в БД 
-$course = R::load('courses', 2);
-// print_r($course);
-echo "ID: " . $course->id . "<br>";
-echo "Название : " . $course->title . "<br>";
-echo "Кол-во уроков : " . $course->tuts . "<br>";
-echo "Уровень: " . $course->level . "<br>";
-echo "<hr>";
-$course->title = "Laravel - уровень 3";
-R::store($course);
-
-// удаление из БД 
-$course = R::load('courses', 2);
-R::trash($course);
