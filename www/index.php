@@ -3,6 +3,9 @@
 require_once('config.php');
 require_once('db.php');
 
+$errors = array();
+$success = array();
+
 /* -----------------
 // Router 
 -------------------*/
