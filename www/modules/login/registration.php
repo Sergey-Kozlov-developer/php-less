@@ -21,9 +21,16 @@ if (isset($_POST['register'])) {
 		// Ошибка! password пуст
 		$errors[] = ["title" => "Введите password"];
 	}
-	if (var_dump(trim($_POST['password'])) < 4) {
-		// Ошибка! password короткий
-		$errors[] = ["title" => "Пароль слишком короткий"];
+	// проверка на минимальную длину пароля
+	$password = trim($_POST['password']);
+	if (empty($password)) {
+		$errors[] = ["title" => "Введите пароль"];
+	} else {
+		$minLength = 4; // Минимальная длина пароля
+
+		if (strlen($password) < $minLength) {
+			$errors[] = ["title" => "Пароль слишком короткий", "desc" => "Минимальная длина пароля: {$minLength} символа"];
+		}
 	}
 
 	// проверка на существующий email
