@@ -16,7 +16,7 @@ else if (!empty($_POST['set-new-password'])) {
 	// пользователь найден
 	if ($user) {
 		// проверить секретный еод на верность
-		if ($user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '') {
+		if ($user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '' && $user->recovery_code != NULL) {
 			// смена пароля
 			$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 			$user->recovery_code = '';
