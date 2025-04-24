@@ -2,63 +2,64 @@
 
 $pageTitle = "Восстановить пароль";
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 
 // 1. Проверить отправку формы POST
 if (isset($_POST['lost-password'])) {
 
-	$_POST['email'] = trim($_POST['email']);
+    $_POST['email'] = trim($_POST['email']);
 
-	// 2. Проверка на заполненный email // info@mail.com
-	if (trim($_POST['email']) == '') {
-		$errors[] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
-	} else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-		$errors[] = ['title' => 'Введите корректный Email'];
-	}
+    // 2. Проверка на заполненный email // info@mail.com
+    if (trim($_POST['email']) == '') {
+        $errors[] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = ['title' => 'Введите корректный Email'];
+    }
 
-	if (empty($errors)) {
+    if (empty($errors)) {
 
-		// 3. Проверка существующего email
-		$user = R::findOne('users', 'email = ?', array($_POST['email']));
+        // 3. Проверка существующего email
+        $user = R::findOne('users', 'email = ?', array($_POST['email']));
 
-		if ($user) {
-			// 4. Сгенерировать секретный код для сброса пароля
+        if ($user) {
+            // 4. Сгенерировать секретный код для сброса пароля
 
-			// Генерируем секретный код
-			function random_str($num = 30)
-			{
-				return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $num);
-			}
-			$recovery_code = random_str();
+            // Генерируем секретный код
+            function random_str($num = 30)
+            {
+                return substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $num);
+            }
+            $recovery_code = random_str();
 
-			// 5. Запомнить секретный код. Записать его в БД.
-			$user->recovery_code = $recovery_code;
-			R::store($user);
-			// 6. Пересылаем пользователю специальную ссылку с секретным кодом для установки нового пароля
-			$recovery_message = "<p>Код сброса пароля: <b>$recovery_code</b></p>";
-			$recovery_message .= "<p>Для сброса пароля перейдите по ссылке ниже и установите новый пароль:</p>";
+            // 5. Запомнить секретный код. Записать его в БД.
+            $user->recovery_code = $recovery_code;
+            R::store($user);
 
-			$recovery_link = HOST . "set-new-password?email={$_POST['email']}&code={$recovery_code}";
-			$recovery_message .= '<p><a href="' . $recovery_link . '">Установить новый пароль</a></p>';
+            // 6. Пересылаем пользователю специальную ссылку с секретным кодом для установки нового пароля
+            $recovery_message = "<p>Код сброса пароля: <b>$recovery_code</b></p>";
+            $recovery_message .= "<p>Для сброса пароля перейдите по ссылке ниже и установите новый пароль:</p>";
 
-			$headers = "MIME-Version: 1.0" . PHP_EOL .
-				"Content-Type: text/html; charset=utf-8" . PHP_EOL .
-				"From: " . "=?utf-8?B?" . base64_encode(SITE_NAME) . "?=" . "<" . SITE_EMAIL . ">" .  PHP_EOL .
-				"Reply-To: " . SITE_EMAIL . PHP_EOL;
+            $recovery_link = HOST . "set-new-password?email={$_POST['email']}&code={$recovery_code}";
+            $recovery_message .= '<p><a href="' . $recovery_link . '">Установить новый пароль</a></p>';
 
-			$resultEmail = mail($_POST['email'], 'Восстановление доступа', $recovery_message, $headers);
+            $headers = "MIME-Version: 1.0" . PHP_EOL .
+                "Content-Type: text/html; charset=utf-8" . PHP_EOL .
+                "From: " . "=?utf-8?B?" . base64_encode(SITE_NAME) . "?=" . "<" . SITE_EMAIL . ">" .  PHP_EOL .
+                "Reply-To: " . SITE_EMAIL . PHP_EOL;
 
-			if ($resultEmail) {
-				$success[] = ['title' => 'Проверьте почту', 'desc' => '<p>Вам было отправлено письмо со ссылкой для сброса пароля.</p>'];
-			} else {
-				$errors[] = ['title' => 'Что-то пошло не так', 'desc' => '<p>Произошла ошибка. Повторите отправку формы еще раз.</p>'];
-			}
-		} else {
-			$errors[] = ['title' => 'Неверный Email'];
-		}
-	}
+            $resultEmail = mail($_POST['email'], 'Восстановление доступа', $recovery_message, $headers);
+
+            if ($resultEmail) {
+                $success[] = ['title' => 'Проверьте почту', 'desc' => '<p>Вам было отправлено письмо со ссылкой для сброса пароля.</p>'];
+            } else {
+                $errors[] = ['title' => 'Что-то пошло не так', 'desc' => '<p>Произошла ошибка. Повторите отправку формы еще раз.</p>'];
+            }
+        } else {
+            $errors[] = ['title' => 'Неверный Email'];
+        }
+    }
 }
 
 
