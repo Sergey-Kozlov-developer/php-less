@@ -1,7 +1,7 @@
 <?php
 
 $pageTitle = "Вход на сайт";
-
+$pageClass = "authorization-page";
 // echo "<pre>";
 // print_r($_POST);
 // echo "</pre>";
@@ -10,24 +10,24 @@ $pageTitle = "Вход на сайт";
 if (isset($_POST['login'])) {
 
     // 2. Заполненность полей
-    if ( trim($_POST['email']) == '' ) {
+    if (trim($_POST['email']) == '') {
         $errors[] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
-    } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){
+    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         $errors[] = ['title' => 'Введите корректный Email'];
     }
 
-    if ( trim($_POST['password']) == '' ) {
+    if (trim($_POST['password']) == '') {
         $errors[] = ['title' => 'Введите пароль'];
     }
 
     // Если поля заполнены, ошибок нет
-    if (empty($errors)){
+    if (empty($errors)) {
         // 3. Ищем нужного юзера в БД по email
         $user = R::findOne('users', 'email = ?', array($_POST['email']));
 
-        if ( $user ) {
+        if ($user) {
             // 4. Сравнение пароля
-            if ( password_verify($_POST['password'], $user->password) ) {
+            if (password_verify($_POST['password'], $user->password)) {
                 // Пароль верен!
                 // Вход на сайт!
                 // 5. Вход пользователя на сайт
@@ -39,11 +39,8 @@ if (isset($_POST['login'])) {
         } else {
             // Email не найден
             $errors[] = ['title' => 'Неверный email'];
-
         }
-
     }
-
 }
 
 ob_start();

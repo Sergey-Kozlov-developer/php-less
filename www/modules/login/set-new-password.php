@@ -1,7 +1,7 @@
 <?php
 
 $pageTitle = "Установить новый пароль";
-
+$pageClass = "authorization-page";
 // 1) Пришли по секретной ссылке с EMAIl
 if (!empty($_GET['email']) && !empty($_GET['code'])) {
 
@@ -21,7 +21,7 @@ else if (!empty($_POST['set-new-password'])) {
     // Если пользователь был найден
     if ($user) {
         // Проверить Секретный код на верность
-        if ($user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '' && $user->recovery_code != NULL ) {
+        if ($user->recovery_code === $_POST['resetCode'] && $user->recovery_code != '' && $user->recovery_code != NULL) {
             // Смена пароля
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $user->recovery_code = '';
