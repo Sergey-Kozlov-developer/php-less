@@ -1,13 +1,10 @@
 <?php
 
-// $content = "Main page";
-
 $pageTitle = "Профиль пользователя";
+$pageClass = "profile-page";
 
-// ob_start();
-// include ROOT . 'templates/about/about.tpl';
-// $content = ob_get_contents();
-// ob_end_clean();
+// Загружаем данные юзера из БД по его ID
+$user = R::load('users', $uriArray[1]);
 
 include ROOT . 'templates/_page-parts/_head.tpl';
 include ROOT . 'templates/_parts/_header.tpl';

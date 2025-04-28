@@ -6,6 +6,8 @@ require_once "db.php";
 $errors = array();
 $success = array();
 
+session_start();
+
 /* ..........................................
 
 РОУТЕР // ROUTE - МАРШРУТ
@@ -19,13 +21,17 @@ $uri = filter_var($uri, FILTER_SANITIZE_URL);
 $uri = substr($uri, 1);
 $uri = explode('?', $uri);
 
+$uriGet = isset($uri[1]) ? $uri[1] : null;
+$uriArray = explode('/', $uri[0]);
+$uriModule = $uriArray[0];
+
 // Роутер
-switch ($uri[0]){
+switch ($uriModule) {
     case '':
-        require (ROOT . "modules/main/index.php");
+        require(ROOT . "modules/main/index.php");
         break;
 
-    // ::::::::::::::::::: USERS :::::::::::::::::::
+        // ::::::::::::::::::: USERS :::::::::::::::::::
 
     case 'login':
         require ROOT . "modules/login/login.php";
@@ -48,7 +54,7 @@ switch ($uri[0]){
         break;
 
     case 'profile':
-        require ROOT . "modules/profile/index.php";
+        require ROOT . "modules/profile/profile.php";
         break;
 
     case 'profile-edit':
@@ -56,7 +62,7 @@ switch ($uri[0]){
         break;
 
 
-    // ::::::::::::::::::: OTHERS :::::::::::::::::::
+        // ::::::::::::::::::: OTHERS :::::::::::::::::::
 
     case 'about':
         require ROOT . "modules/about/index.php";
