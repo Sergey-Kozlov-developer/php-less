@@ -2,9 +2,10 @@
 
 require_once "config.php";
 require_once "db.php";
+require_once "./libs/resize-and-crop.php";
 
-$errors = array();
-$success = array();
+$_SESSION['errors'] = array();
+$_SESSION['success'] = array();
 
 session_start();
 
@@ -24,6 +25,9 @@ $uri = explode('?', $uri);
 $uriGet = isset($uri[1]) ? $uri[1] : null;
 $uriArray = explode('/', $uri[0]);
 $uriModule = $uriArray[0];
+
+// print_r($uriArray);
+// die();
 
 // Роутер
 switch ($uriModule) {

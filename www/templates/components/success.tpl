@@ -1,9 +1,9 @@
 <?php
     // Проверка что массив $errors НЕ пуст, значит есть ошиьки на вывод
-    if ( !empty($success)):
+    if ( !empty($_SESSION['success'])):
 
         // Обходим массив, выводя каждую ошибку
-        foreach ($success as $item ):
+        foreach ($_SESSION['success'] as $item ):
 
             // Если в ошибке только заголовок
             if ( count($item) == 1):
@@ -24,5 +24,7 @@
             <?php
             endif;
         endforeach;
+
+        $_SESSION['success'] = array();
     endif;
 ?>

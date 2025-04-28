@@ -11,25 +11,25 @@ if ( isset($_POST['register'])) {
 
     // Проверка на зполненность
     if ( $userEmail == '' ) {
-        $errors[] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+        $_SESSION['errors'][] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
     } else if ( !filter_var($userEmail, FILTER_VALIDATE_EMAIL) ){
-        $errors[] = ['title' => 'Введите корректный Email'];
+        $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
     }
 
     if ( $userPass == '' || (strlen($userPass) < 4) ) {
-        $errors[] = ['title' => "Введите пароль длиной не менее 4 символов"];
+        $_SESSION['errors'][] = ['title' => "Введите пароль длиной не менее 4 символов"];
     }
 
     // Проверка на занятый email
     if ( R::count('users', 'email = ?', array($_POST['email'])) > 0 ) {
-        $errors[] = [
+        $_SESSION['errors'][] = [
             'title' => 'Пользователь с таким Email уже зарегистрирован',
             'desc' => '<p>Используйте другой Email адрес, или воспользуйтесь <a href="'.HOST.'lost-password">восстановлением пароля</a>.</p>'
         ];
     }
 
     // Если нет ошибок - Регистрируем пользователя
-    if ( empty($errors)) {
+    if ( empty($_SESSION['errors'])) {
         $user = R::dispense('users');
         $user->email = $_POST['email'];
         $user->role = 'user';
@@ -44,11 +44,17 @@ if ( isset($_POST['register'])) {
             $_SESSION['login'] = 1;
             $_SESSION['role'] = $user->role;
 
+            $_SESSION['success'][] =
+            [
+                'title' => 'Регистрация завершена',
+                'desc' => '<p>Заполните свой профиль для дальнейшего пользования сайтом.</p>'
+            ];
+
             header('Location: ' . HOST . "profile-edit");
             exit();
 
         } else {
-            $errors[] = ['title' => 'Что-то полшло не так. Повторите действие заново.'];
+            $_SESSION['errors'][] = ['title' => 'Что-то полшло не так. Повторите действие заново.'];
         }
     }
 

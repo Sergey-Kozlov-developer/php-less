@@ -33,7 +33,7 @@ else if (!empty($_POST['set-new-password'])) {
 
             $newPasswordReady = true;
         } else {
-            $errors[] = ['title' => 'Неверный код'];
+            $_SESSION['errors'][] = ['title' => 'Неверный код'];
         }
     }
 }

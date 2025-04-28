@@ -12,17 +12,17 @@ if (isset($_POST['login'])) {
 
     // 2. Заполненность полей
     if ( trim($_POST['email']) == '' ) {
-        $errors[] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
+        $_SESSION['errors'][] = ['title' => 'Введите Email', 'desc' => '<p>Email обязателен для регистрации на сайте</p>'];
     } else if ( !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ){
-        $errors[] = ['title' => 'Введите корректный Email'];
+        $_SESSION['errors'][] = ['title' => 'Введите корректный Email'];
     }
 
     if ( trim($_POST['password']) == '' ) {
-        $errors[] = ['title' => 'Введите пароль'];
+        $_SESSION['errors'][] = ['title' => 'Введите пароль'];
     }
 
     // Если поля заполнены, ошибок нет
-    if (empty($errors)){
+    if (empty($_SESSION['errors'])){
         // 3. Ищем нужного юзера в БД по email
         $user = R::findOne('users', 'email = ?', array($_POST['email']));
 
@@ -39,16 +39,18 @@ if (isset($_POST['login'])) {
                 $_SESSION['login'] = 1;
                 $_SESSION['role'] = $user->role;
 
+                $_SESSION['success'][] = ['title' => 'Рады снова видеть вас! Вы успешно вошли на сайт'];
+
                 header('Location: ' . HOST . "profile");
                 exit();
 
             } else {
                 // Пароль не верен
-                $errors[] = ['title' => 'Неверный пароль'];
+                $_SESSION['errors'][] = ['title' => 'Неверный пароль'];
             }
         } else {
             // Email не найден
-            $errors[] = ['title' => 'Неверный email'];
+            $_SESSION['errors'][] = ['title' => 'Неверный email'];
 
         }
 

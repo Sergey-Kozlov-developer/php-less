@@ -1,7 +1,8 @@
-<h1><?php echo $page_name; ?></h1>
-<?php echo $page_text; ?>
+<?php
 
-<hr>
-
-<h2><?php echo $aboutName;?></h2>
-<p><?php echo $aboutDesc;?></p>
+include ROOT . 'templates/main/_about.tpl';
+echo '<div class="container">';
+include ROOT . 'templates/main/_status.tpl';
+include ROOT . 'templates/main/_portfolio.tpl';
+include ROOT . 'templates/main/_blog.tpl';
+echo '</div>';

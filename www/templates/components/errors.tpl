@@ -1,15 +1,18 @@
 <?php
+
     // Проверка что массив $errors НЕ пуст, значит есть ошиьки на вывод
-    if ( !empty($errors)):
+    if ( !empty($_SESSION['errors'])):
 
         // Обходим массив, выводя каждую ошибку
-        foreach ($errors as $error ):
+        foreach ($_SESSION['errors'] as $error ):
 
             // Если в ошибке только заголовок
             if ( count($error) == 1):
             ?>
                 <div class="notifications mb-20">
-                    <div class="notifications__title notifications__title--error"><?php echo $error['title'];?></div>
+                    <div class="notifications__title notifications__title--error">
+                        <?php echo $error['title'];?>
+                    </div>
                 </div>
             <?php
             // Если в ошибке заголовок с описанием
@@ -24,5 +27,7 @@
             <?php
             endif;
         endforeach;
+
+        $_SESSION['errors'] = array();
     endif;
 ?>
