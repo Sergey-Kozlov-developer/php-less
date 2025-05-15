@@ -1,0 +1,1 @@
+<h1>Admin blog index.php</h1>

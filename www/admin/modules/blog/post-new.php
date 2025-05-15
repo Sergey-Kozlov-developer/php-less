@@ -1,0 +1,1 @@
+<h1>Admin blog post-new.php</h1>
