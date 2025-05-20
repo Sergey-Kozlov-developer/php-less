@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
                 // 5. Вход пользователя на сайт
                 // $success[] = ['title' => 'Верный пароль!'];
 
-                // Автологин пользователя после регистрации
+                // Логин пользователя
                 $_SESSION['logged_user'] = $user;
                 $_SESSION['login'] = 1;
                 $_SESSION['role'] = $user->role;

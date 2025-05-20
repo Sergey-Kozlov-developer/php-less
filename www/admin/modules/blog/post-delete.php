@@ -1,1 +1,1 @@
-<h1>Admin blog post-delete.php</h1>
+<h1>Admin - Blog - Delete Post</h1>

@@ -4,7 +4,7 @@ $pageTitle = "Профиль пользователя";
 $pageClass = "profile-page";
 
 // Загружаем данные юзера из БД по его ID
-$user = R::load('users', $uriArray[1]);
+$user = R::load('users', $uriGet);
 
 include ROOT . 'templates/_page-parts/_head.tpl';
 include ROOT . 'templates/_parts/_header.tpl';

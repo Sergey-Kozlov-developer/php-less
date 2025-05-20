@@ -1,1 +1,1 @@
-<h1>Admin blog post-edit.php</h1>
+<h1>Admin - Blog - Edit Post</h1>

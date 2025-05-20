@@ -1,1 +1,1 @@
-<h1>Admin index.php</h1>
+<h1>Admin - index.php</h1>

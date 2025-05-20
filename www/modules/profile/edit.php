@@ -25,10 +25,6 @@ function updateUserandGoToProfile($user){
             // Работа с файлом фотографии для аватара пользователя
             if ( isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] !== '') {
 
-                // echo $_FILES['avatar']['name'];
-                // echo $_FILES['avatar']['tmp_name'];
-                // die();
-
                 // 1. Записываем параметры файла в переменные
                 $fileName = $_FILES["avatar"]["name"];
                 $fileTmpLoc = $_FILES["avatar"]["tmp_name"];
@@ -147,10 +143,10 @@ if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
 
         // Делаем проверку на дополнительный параметр - ID пользователя для редактирования
 
-        if (isset($uriArray[1])) {
+        if (isset($uriGet)) {
             // Редактирование чужого профиля
             // Загружаем данные о профиле
-            $user = R::load('users', intval($uriArray[1]));
+            $user = R::load('users', intval($uriGet));
 
             // Обновляем данные пользователя, после оптравки формы
             updateUserandGoToProfile($user);
