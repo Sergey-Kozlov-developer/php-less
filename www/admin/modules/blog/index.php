@@ -1,5 +1,7 @@
 <?php
 
+$posts = R::find('posts', 'ORDER BY id DESC');
+
 // Центральный шаблон для модуля
 ob_start();
 include ROOT . 'admin/templates/blog/index.tpl';
