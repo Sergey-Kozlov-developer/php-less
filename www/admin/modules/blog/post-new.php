@@ -16,6 +16,7 @@ if (isset($_POST['postSubmit'])) {
         $post = R::dispense('posts');
         $post->title = $_POST['title'];
         $post->content = $_POST['content'];
+        $post->timestamp = time();
 
         // Если передано изображение - уменьшаем, сохраняем, записываем в БД
         // Работа с файлом фотографии для аватара пользователя
