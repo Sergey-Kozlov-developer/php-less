@@ -123,3 +123,35 @@ function rus_date(){
         return strtr(date(func_get_arg(0)), $translate);
     }
 }
+
+function pagination($results_per_page, $type) {
+
+    // номер текущей запрашиваемой страницы берем из GET
+    if (!isset($_GET['page'])) {
+        $page_number = 1;
+    } else {
+        $page_number = intval($_GET['page']);
+    }
+
+
+    // считаем кол-во страниц пагинации
+    $number_of_results = R::count($type);
+    //кол-во страниц для показа
+    $number_of_pages = ceil($number_of_results / $results_per_page);
+    // последняя доступная страница если запрос больше чем страниц в пагинации
+    if ($page_number > $number_of_pages) {
+        $page_number = $number_of_pages;
+    }
+
+    // опредялем с какого поста начать вывод
+    $starting_limit_number = ($page_number - 1) * $results_per_page;
+    // формируем подстроку для SQL запроса
+    $sql_page_limit = "LIMIT {$starting_limit_number}, {$results_per_page}";
+    // результирующий массив с данными
+    $result['number_of_pages'] = $number_of_pages; // запись кол-во страниц
+    $result['page_number'] = $page_number;
+    $result['sql_page_limit'] = $sql_page_limit;
+
+    return $result;
+
+}

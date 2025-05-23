@@ -3,7 +3,7 @@
         // Кнопка Назад
         include ROOT . "templates/_parts/pagination/_button-prev.tpl";
 
-        if ($number_of_pages > 6){
+        if ($pagination['number_of_pages'] > 6){
             // Если больше 6 страниц
             include ROOT . "templates/_parts/pagination/_pages-more-then-6.tpl";
         } else {

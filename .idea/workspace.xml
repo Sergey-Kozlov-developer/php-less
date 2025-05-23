@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/www/templates/_parts/pagination/_button-next.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/_parts/pagination/_button-prev.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/_parts/pagination/_page-loop.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/_parts/pagination/_pages-more-then-6.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/_parts/pagination/_pagination.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/modules/blog/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" afterDir="false" />
-    </list>
+    <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +71,7 @@
       <workItem from="1742461886535" duration="2049000" />
       <workItem from="1742549855193" duration="2899000" />
       <workItem from="1747825763033" duration="2080000" />
-      <workItem from="1747828753132" duration="8258000" />
+      <workItem from="1747828753132" duration="8418000" />
     </task>
     <servers />
   </component>
