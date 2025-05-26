@@ -58,3 +58,11 @@ html {
 .control-panel__list-img-badge {
     border-radius: 10px;
 }
+
+.primary-button--red {
+    background: #C93535;
+}
+
+.admin-form {
+    width: 900px;
+}

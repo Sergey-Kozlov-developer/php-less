@@ -9,7 +9,7 @@
         <?php include ROOT . 'admin/templates/components/success.tpl'; ?>
 
         <div class="admin-form__item">
-            <h2 class="heading">Добавить пост </h2>
+            <h2 class="heading">Редактировать пост </h2>
         </div>
         <div class="admin-form__item">
             <label class="input__label">
