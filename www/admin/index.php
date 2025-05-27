@@ -48,6 +48,24 @@ switch ($uriModule) {
         require ROOT . "admin/modules/blog/post-delete.php";
         break;
 
+    // ::::::::::::::::::: CATEGORIES :::::::::::::::::::
+
+    case 'category':
+        require ROOT . "admin/modules/categories/all.php";
+        break;
+
+    case 'category-new':
+        require ROOT . "admin/modules/categories/new.php";
+        break;
+
+    case 'category-edit':
+        require ROOT . "admin/modules/categories/edit.php";
+        break;
+
+    case 'category-delete':
+        require ROOT . "admin/modules/categories/delete.php";
+        break;
+
     // ::::::::::::::::::: OTHERS :::::::::::::::::::
 
     default:

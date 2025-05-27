@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-delete.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-edit.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/blog/_pagination.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/modules/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/admin/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-delete.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-new.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-new.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-delete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-delete.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-edit.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-edit.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-new.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-new.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/templates/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/template.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/static/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/static/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/libs/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/libs/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/blog/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/profile/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/profile/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/290-428630343238.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/290-791297043051.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/428630343238.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/791297043051.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,18 +39,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Sergey-Kozlov-developer"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Sergey-Kozlov-developer&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Sergey-Kozlov-developer/php-less.git",
-    "accountId": "40605100-c187-4a2c-8d1e-2f19ec1eb941"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Sergey-Kozlov-developer/php-less.git&quot;,
+    &quot;accountId&quot;: &quot;40605100-c187-4a2c-8d1e-2f19ec1eb941&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\Users\User\.config\herd-lite\bin\php.exe" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -71,9 +82,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\templates\blog" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\modules\blog" />
       <recent name="C:\Users\User\VSProject\Docker\php-less\www\libs" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\libs\ck-upload" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\templates\_parts\pagination" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -99,7 +112,8 @@
       <workItem from="1747825763033" duration="2080000" />
       <workItem from="1747828753132" duration="8418000" />
       <workItem from="1747978397145" duration="10938000" />
-      <workItem from="1748269050729" duration="2013000" />
+      <workItem from="1748269050729" duration="2403000" />
+      <workItem from="1748332428062" duration="5180000" />
     </task>
     <servers />
   </component>
