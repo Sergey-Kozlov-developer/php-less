@@ -23,7 +23,7 @@
                         <td><?= $cat['id'] ?></td>
                         <td>
                             <a href="<?php echo HOST . "admin/"; ?>category-edit?id=<?= $cat['id'] ?>">
-                                <?= $cat['title'] ?>
+                                <?= $cat['cat_title'] ?>
                             </a>
                         </td>
                         <td>

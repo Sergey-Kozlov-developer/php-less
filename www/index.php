@@ -18,6 +18,7 @@ session_start();
 
 $uriModule = getModuleName();
 $uriGet = getUriGet();
+$uriGetParam = getUriGetParam();
 
 // Роутер
 switch ($uriModule) {
@@ -63,7 +64,16 @@ switch ($uriModule) {
         break;
 
     case 'blog':
-        require ROOT . "modules/blog/index.php";
+        // require ROOT . "modules/blog/index.php";
+
+        if (isset($uriGet) && $uriGet === 'cat' && !empty($uriGetParam)) {
+            require ROOT . "modules/blog/categories.php";
+        } elseif (isset($uriGet)) {
+            require ROOT . "modules/blog/single-post.php";
+        } else {
+            require ROOT . "modules/blog/all.php";
+        }
+
         break;
 
     case 'contacts':

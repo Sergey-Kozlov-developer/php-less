@@ -16,7 +16,7 @@
                     class="input input--width-label"
                     type="text"
                     placeholder="Название категории"
-                    value="<?=$cat['title']?>"
+                    value="<?=$cat['cat_title']?>"
                 />
             </label>
         </div>

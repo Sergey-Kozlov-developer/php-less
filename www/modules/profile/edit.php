@@ -1,7 +1,6 @@
 <?php
 
-function updateUserandGoToProfile($user)
-{
+function updateUserandGoToProfile($user){
     if (isset($_POST['updateProfile'])) {
 
         // Проверить поля на заполненность
@@ -23,18 +22,18 @@ function updateUserandGoToProfile($user)
             $user->city = htmlentities($_POST['city']);
             $user->country = htmlentities($_POST['country']);
 
+            // Если передано изображение - уменьшаем, сохраняем, записываем в БД
             if (isset($_FILES['avatar']['name']) && $_FILES['avatar']['tmp_name'] !== '') {
-
-                // Если передано изображение - уменьшаем, сохраняем, записываем в БД
+                // Обрабатываем картинку, сохраняем, и получаем имя файла
                 $avatarFileName = saveUploadedImg('avatar', [160, 160], 12, 'avatars', [160, 160], [48, 48]);
 
                 // Если новое изображение успешно загружено тогда удаляем старое
                 if ($avatarFileName) {
                     // Удаляем старое изображение
-                    if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatar) && !empty($user->avatar)) {
+                    if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatar) && !empty($user->avatar)){
                         unlink(ROOT . 'usercontent/avatars/' . $user->avatar);
                     }
-                    if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatarSmall) && !empty($user->avatarSmall)) {
+                    if (file_exists(ROOT . 'usercontent/avatars/' . $user->avatarSmall) && !empty($user->avatarSmall)  ) {
                         unlink(ROOT . 'usercontent/avatars/' . $user->avatarSmall);
                     }
                 }
@@ -44,9 +43,8 @@ function updateUserandGoToProfile($user)
                 $user->avatarSmall = $avatarFileName[1];
             }
 
-
             // Удаление аватарки
-            if (isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
+            if ( isset($_POST['delete-avatar']) && $_POST['delete-avatar'] == 'on') {
 
                 // Удалить файлы аватарки
                 $avatarFolderLocation = ROOT . 'usercontent/avatars/';
@@ -56,6 +54,7 @@ function updateUserandGoToProfile($user)
                 // Удалить записи в БД
                 $user->avatar = '';
                 $user->avatarSmall = '';
+
             }
 
             R::store($user);
@@ -63,12 +62,13 @@ function updateUserandGoToProfile($user)
 
             header('Location: ' . HOST . 'profile');
             exit();
+
         }
     }
 }
 
 // Проверка на что что юзер залогинен
-if (isset($_SESSION['login']) && $_SESSION['login'] === 1) {
+if ( isset($_SESSION['login']) && $_SESSION['login'] === 1) {
     // Юзер залогинен
 
     // Проверка на роль Юзера (пользователь или админ)
@@ -77,7 +77,8 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 1) {
         $user = R::load('users', $_SESSION['logged_user']['id']);
         // Обновляем данные пользователя, после оптравки формы
         updateUserandGoToProfile($user);
-    } else if ($_SESSION['logged_user']['role'] === 'admin') {
+
+    } else if ($_SESSION['logged_user']['role'] === 'admin' ) {
         // Это Администратор сайта
 
         // Делаем проверку на дополнительный параметр - ID пользователя для редактирования
@@ -89,14 +90,25 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === 1) {
 
             // Обновляем данные пользователя, после оптравки формы
             updateUserandGoToProfile($user);
+
         } else {
             // Редактирование своего профиля
             $user = R::load('users', $_SESSION['logged_user']['id']);
 
             // Обновляем данные пользователя, после оптравки формы
             updateUserandGoToProfile($user);
+
         }
+
+
+
+
+
+
+
+
     }
+
 } else {
     header('Location: ' . HOST . 'login');
     exit();

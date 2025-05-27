@@ -64,6 +64,19 @@ function getUriGet()
     return $uriGet; // profile/15 => 15
 }
 
+function getUriGetParam (){
+    // Обработка запроса
+    $uri = $_SERVER['REQUEST_URI'];
+    $uri = rtrim($uri, "/"); // 'site.ru/' => 'site.ru'
+    $uri = filter_var($uri, FILTER_SANITIZE_URL);
+    $uri = substr($uri, 1);
+    $uri = explode('?', $uri); // ['blog/cat/5', 'id=20']
+    $uri = $uri[0];
+    $uriArr = explode('/', $uri); // ['blog', 'cat', '15']
+    $uriGet = isset($uriArr[2]) ? $uriArr[2] : null;
+    return $uriGet; // blog/cat/15 => 15
+}
+
 function rus_date()
 {
     // Перевод
@@ -125,13 +138,20 @@ function rus_date()
     }
 }
 
-function pagination($results_per_page, $type)
+// pagination(6, 'posts');
+// pagination(6, 'posts', [' cat = ? ', [4] ]);
+function pagination($results_per_page, $type, $params = null)
 {
     // 18 постов
     // по 6 постов на страницу
     // Итого 3 страницы
 
-    $number_of_results = R::count($type); // 18
+    if (empty($params)) {
+        $number_of_results = R::count($type);
+    } else {
+        $number_of_results = R::count($type, $params[0], $params[1]);
+    }
+
     $number_of_pages = ceil($number_of_results / $results_per_page); // 20 / 6 = 4
 
     if (!isset($_GET['page'])) {
@@ -170,7 +190,6 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
 
     // Если передано изображение - уменьшаем, сохраняем, записываем в БД
     // Работа с файлом фотографии для аватара пользователя
-
 
     // 1. Записываем параметры файла в переменные
     $fileName = $_FILES[$inputFileName]["name"];

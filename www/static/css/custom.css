@@ -66,3 +66,23 @@ html {
 .admin-form {
     width: 900px;
 }
+
+.icon-delete {
+    display: inline-block;
+}
+
+.section-posts__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-posts__info > * + * {
+    margin-left: 15px;
+}
+
+a.badge:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: rgb(87, 87, 87);
+}

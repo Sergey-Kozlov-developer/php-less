@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col section-footer__copyright">
-                <p>© Юрий Ключевский</p>
-                <p>Создано в WebCademy.ru в 2020 году.</p>
+                <p>© Сергей Козлов</p>
+                <p>Pet проект 2025</p>
             </div>
             <div class="col section-social-icons">
                 <div class="footer-icons"><a href="#"><img src="<?= HOST ?>static/img/favicons/youtube-brands.svg" alt="Youtube" width="30" height="21" /></a></div>

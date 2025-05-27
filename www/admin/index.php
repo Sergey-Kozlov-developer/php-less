@@ -33,19 +33,19 @@ switch ($uriModule) {
     // ::::::::::::::::::: BLOG :::::::::::::::::::
 
     case 'blog':
-        require ROOT . "admin/modules/blog/index.php";
+        require ROOT . "admin/modules/blog/all.php";
         break;
 
     case 'post-new':
-        require ROOT . "admin/modules/blog/post-new.php";
+        require ROOT . "admin/modules/blog/new.php";
         break;
 
     case 'post-edit':
-        require ROOT . "admin/modules/blog/post-edit.php";
+        require ROOT . "admin/modules/blog/edit.php";
         break;
 
     case 'post-delete':
-        require ROOT . "admin/modules/blog/post-delete.php";
+        require ROOT . "admin/modules/blog/delete.php";
         break;
 
     // ::::::::::::::::::: CATEGORIES :::::::::::::::::::
