@@ -1,5 +1,17 @@
 <?php
 
+function getUserComments($userId){
+    $sqlQuery = 'SELECT
+                        comments.id, comments.text, comments.post, comments.user, comments.timestamp,
+                        posts.title
+                FROM `comments`
+                LEFT JOIN `posts` ON comments.post = posts.id
+                WHERE comments.user = ?';
+
+    return R::getAll($sqlQuery, [$userId]);
+
+}
+
 $pageTitle = "Профиль пользователя";
 $pageClass = "profile-page";
 
@@ -9,6 +21,10 @@ if (isset($uriGet)) {
     // Загружаем данные юзера из БД по его ID
     $user = R::load('users', $uriGet);
 
+    // Загружаем комментари пользователя
+    $comments = getUserComments($uriGet);
+
+
 } else {
     // Если не было дополнительного параметра
 
@@ -16,6 +32,9 @@ if (isset($uriGet)) {
     if (isset($_SESSION['login']) && $_SESSION['login'] === 1) {
         // Пользователь залогинен и показываем его профиль
         $user = R::load('users', $_SESSION['logged_user']['id']);
+
+        // Загружаем комментари пользователя
+        $comments = getUserComments($_SESSION['logged_user']['id']);
 
     } else {
         // Пользователь не залогинен, показываем приглашение к регистрации
