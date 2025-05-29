@@ -1,4 +1,4 @@
-<!--    Комментарии пользователя-->
+<!-- Комментарии пользователя -->
 <div class="section bg-grey">
     <div class="container">
         <div class="section__title">
@@ -8,15 +8,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
 
-                    <?php foreach ($comments as $comment): ?>
-                        <!--                    Комментарии-->
+                    <?php foreach ($comments as $comment) : ?>
                         <?php include ROOT . "templates/profile/_parts/_comment.tpl"; ?>
-
                     <?php endforeach; ?>
-                    <!--               //     Комментарии-->
+
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--   // Комментарии пользователя-->
+<!-- // Комментарии пользователя -->

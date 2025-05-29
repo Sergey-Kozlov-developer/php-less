@@ -21,7 +21,7 @@
             <label class="select-label">Выберите категорию
                 <select class="select" name="cat">
                     <?php foreach($cats as $cat): ?>
-                        <option value="<?=$cat['id']?>"><?=$cat['cat_title']?></option>
+                        <option value="<?=$cat['id']?>"><?=$cat['title']?></option>
                     <?php endforeach; ?>
                 </select>
             </label>

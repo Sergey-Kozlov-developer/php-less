@@ -1,6 +1,6 @@
 <?php
 
-$cats = R::find('categories', 'ORDER BY cat_title ASC');
+$cats = R::find('categories', 'ORDER BY title ASC');
 
 if (isset($_POST['postSubmit'])) {
 

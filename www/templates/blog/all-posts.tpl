@@ -2,9 +2,9 @@
     <div class="container">
         <div class="page-blog__header">
             <?php if (isset($catTitle)) : ?>
-                    <h2 class="heading"><?= $catTitle?></h2>
-                <?php else : ?>
-                    <h2 class="heading">Блог</h2>
+                <h2 class="heading"><?= $catTitle ?></h2>
+            <?php else : ?>
+                <h2 class="heading">Блог</h2>
             <?php endif; ?>
 
         </div>
@@ -25,7 +25,7 @@
 
         </div>
         <div class="page-blog__pagination">
-            <?php include ROOT . "./templates/blog/_pagination.tpl" ?>
+            <?php include ROOT . "templates/_parts/pagination/_pagination.tpl" ?>
         </div>
     </div>
 </main>

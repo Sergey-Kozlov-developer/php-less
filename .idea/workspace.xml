@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/www/templates/profile/_parts/_comment.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/profile/_parts/user-comments.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/libs/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/libs/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/blog/add-comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/add-comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/blog/single-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/single-post.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/modules/profile/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/profile/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/parts/comments-form.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/parts/comments-form.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/parts/comments.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/parts/comments.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/parts/post-nav.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/parts/post-nav.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/single-post.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/single-post.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/profile/_parts/_comment.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/profile/_parts/_comment.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/profile/_parts/user-comments.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/profile/_parts/user-comments.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/templates/profile/profile.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/profile/profile.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +111,7 @@
       <workItem from="1748269050729" duration="2403000" />
       <workItem from="1748332428062" duration="5180000" />
       <workItem from="1748347820745" duration="3569000" />
-      <workItem from="1748496949126" duration="15714000" />
+      <workItem from="1748496949126" duration="16972000" />
     </task>
     <servers />
   </component>

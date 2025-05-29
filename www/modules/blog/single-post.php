@@ -16,20 +16,23 @@ $sqlQuery = 'SELECT
 
 $post = R::getRow($sqlQuery, [$uriGet]);
 
-// кнопкуи назад и вперед
-$postsId = R::getCol('SELECT id FROM `posts`');
+// Кнопки Назад и Вперед
+$postsId = R::getCol('SELECT id FROM posts');
 foreach ($postsId as $index => $value) {
     if ($post['id'] == $value) {
         $nextId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : null;
         $prevId = array_key_exists($index - 1, $postsId) ? $postsId[$index - 1] : null;
     }
 }
+
 // Комментарии
 $sqlQueryComments = 'SELECT comments.text, comments.user, comments.timestamp,
                             users.name, users.surname, users.avatar_small
-                        FROM `comments` LEFT JOIN `users` ON comments.user = users.id
-                        WHERE comments.post = ?';
+                        FROM `comments` LEFT JOIN `users` ON comments.user = users.id WHERE comments.post = ?';
 $comments = R::getAll($sqlQueryComments, [$post['id']]);
+
+// Вывод похожих постов
+$relatedPosts = get_related_posts($post['title']);
 
 // Центральный шаблон для модуля
 ob_start();

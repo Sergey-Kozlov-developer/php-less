@@ -146,25 +146,39 @@ function pagination($results_per_page, $type, $params = null)
     // по 6 постов на страницу
     // Итого 3 страницы
 
+    // Считаем количество результатов (постов например)
+    // Проверка переданы ли дополнительные параметры, например категория в блоге или нет
     if (empty($params)) {
+        // Если параметров нет, то просто смотрим сколько постов в блоге
         $number_of_results = R::count($type);
     } else {
+        // Если параметры есть - тогда смотрим сколько постов в блоге !!!в данной категории!!!
         $number_of_results = R::count($type, $params[0], $params[1]);
     }
 
+    // Считаем количество страниц пагинации
     $number_of_pages = ceil($number_of_results / $results_per_page); // 20 / 6 = 4
 
+    // Определяем текущий номер запрашиваемой страницы
     if (!isset($_GET['page'])) {
         $page_number = 1;
     } else {
         $page_number = $_GET['page'];
     }
 
+    // Если запросили страницу котьорой не существует, то показываем последнюю доступнуюю
+    if ($page_number > $number_of_pages) {
+        $page_number = $number_of_pages;
+    }
+
+    // Определяем с какого поста начать вывод
     $starting_limit_number = ($page_number - 1) * $results_per_page;
+    // формируем подстроку для sql запроса
     $sql_pages_limit = "LIMIT {$starting_limit_number}, $results_per_page";
 
     // return $sql_pages_limit;
 
+    // Результирующий массив с данными
     $result['number_of_pages'] = $number_of_pages; // 3
     $result['page_number'] = $page_number; // 2
     $result['sql_pages_limit'] = $sql_pages_limit; // LIMIT 6, 6
@@ -250,4 +264,68 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
 
         return [$db_file_name, $smallSize[0] . '-' . $db_file_name];
     }
+}
+
+// Вывод похожих постов posts
+function get_related_posts($postTitle)
+{
+
+
+    $wordsArray = explode(' ', $postTitle);
+    $wordsArray = array_unique($wordsArray);
+
+    // Массив со стоп словами (предлоги, союзы, можно добавить другие "общие" слова)
+    $stopWords = ['и', 'на', 'в', 'а', 'под', 'если', 'за', '-', 'что', 'самом', 'деле', 'означает'];
+
+    // Новый обработанный массив
+    $newWordsArray = array();
+
+    foreach ($wordsArray as $word) {
+
+        // переводим в нижний регистр
+        $word = mb_strtolower($word);
+
+        // Удаляем кавычки и лишние символы
+        $word = str_replace('"', "", $word);
+        $word = str_replace("'", "", $word);
+        $word = str_replace("»", "", $word);
+        $word = str_replace("«", "", $word);
+        $word = str_replace(",", "", $word);
+        $word = str_replace(".", "", $word);
+
+        // Проверяем наличие слова в стоп списке
+        if (!in_array($word, $stopWords)) {
+
+            // Обрезаем окончания
+            if (mb_strlen($word) > 4) {
+                $word = mb_substr($word, 0, -2);
+            } else if (mb_strlen($word) > 3) {
+                $word = mb_substr($word, 0, -1);
+            }
+
+            // Добавляем символ шаблона
+            $word = '%' . $word . '%';
+
+            // Добавляем слова в новый массив
+            $newWordsArray[] = $word;
+        }
+    }
+
+    // SQL запрос который нужно сформировать
+    // $relatedPosts = R::getAll('SELECT * FROM `posts` WHERE title LIKE ? OR title LIKE ?', ['%Москва%', '%Ford%']);
+
+    $sqlQuery = 'SELECT id, title, cover_small FROM `posts` WHERE ';
+
+    for ($i = 0; $i < count($newWordsArray); $i++) {
+        if ($i + 1 == count($newWordsArray)) {
+            // Последний цикл
+            $sqlQuery .= 'title LIKE ?';
+        } else {
+            $sqlQuery .= 'title LIKE ? OR ';
+        }
+    }
+
+    $sqlQuery .= ' order by RAND() LIMIT 3';
+
+    return R::getAll($sqlQuery, $newWordsArray);
 }

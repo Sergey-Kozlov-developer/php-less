@@ -20,7 +20,7 @@ if (isset($uriGet)) {
     // ID был передан, находим юзера в БД
     // Загружаем данные юзера из БД по его ID
     $user = R::load('users', $uriGet);
-
+    
     // Загружаем комментари пользователя
     $comments = getUserComments($uriGet);
 

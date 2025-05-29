@@ -1,6 +1,6 @@
 <?php
 
-$cats = R::find('categories', 'ORDER BY cat_title ASC');
+$cats = R::find('categories', 'ORDER BY title ASC');
 
 if (isset($_POST['postEdit'])) {
 
@@ -48,10 +48,10 @@ if (isset($_POST['postEdit'])) {
             // Если новое изображение успешно загружено тогда удаляем старое
             if ($coverFileName) {
                 // Удаляем старое изображение
-                if ( file_exists(ROOT . 'usercontent/blog/' . $post->cover) && !empty($user->cover)){
+                if (file_exists(ROOT . 'usercontent/blog/' . $post->cover) && !empty($user->cover)) {
                     unlink(ROOT . 'usercontent/blog/' . $post->cover);
                 }
-                if ( file_exists(ROOT . 'usercontent/blog/' . $post->coverSmall) && !empty($user->coverSmall)) {
+                if (file_exists(ROOT . 'usercontent/blog/' . $post->coverSmall) && !empty($user->coverSmall)) {
                     unlink(ROOT . 'usercontent/blog/' . $post->coverSmall);
                 }
             }
@@ -63,11 +63,7 @@ if (isset($_POST['postEdit'])) {
 
         R::store($post);
         $_SESSION['success'][] = ['title' => 'Пост успешно обновлен'];
-
     }
-
-
-
 }
 
 $post = R::load('posts', $_GET['id']);

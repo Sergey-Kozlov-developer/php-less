@@ -126,10 +126,11 @@
             </div>
         </div>
 
+
         <?php
-        if (isset($comments) and !empty($comments)) {
-            include ROOT . "templates/profile/_parts/user-comments.tpl";
-        }
+            if (isset($comments) and !empty($comments)) {
+                include ROOT . "templates/profile/_parts/user-comments.tpl";
+            }
         ?>
 
 

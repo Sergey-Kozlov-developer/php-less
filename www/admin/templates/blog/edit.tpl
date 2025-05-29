@@ -27,7 +27,7 @@
                 <select class="select" name="cat">
                     <?php foreach($cats as $cat): ?>
                         <option <?php echo $post['cat'] == $cat['id'] ? 'selected' : '555'; ?> value="<?=$cat['id']?>">
-                            <?=$cat['cat_title']?>
+                            <?=$cat['title']?>
                         </option>
                     <?php endforeach; ?>
                 </select>

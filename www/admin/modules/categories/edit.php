@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     if (empty($_SESSION['errors'])) {
 
         $cat = R::load('categories', $_GET['id']);
-        $cat->cat_title = $_POST['title'];
+        $cat->title = $_POST['title'];
         R::store($cat);
 
         $_SESSION['success'][] = ['title' => 'Категория успешно обновлена'];
