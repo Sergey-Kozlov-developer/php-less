@@ -9,12 +9,27 @@ $pageTitle = "Блог - все записи";
 $sqlQuery = 'SELECT
                     posts.id, posts.title, posts.content,
                     posts.cover, posts.timestamp, posts.edit_time, posts.cat,
-                    categories.cat_title
+                    categories.title AS cat_title
                 FROM `posts`
                 LEFT JOIN `categories` ON posts.cat = categories.id
-                WHERE posts.id = ' . $uriGet . ' LIMIT 1';
+                WHERE posts.id = ? LIMIT 1';
 
-$post = R::getRow($sqlQuery);
+$post = R::getRow($sqlQuery, [$uriGet]);
+
+// кнопкуи назад и вперед
+$postsId = R::getCol('SELECT id FROM `posts`');
+foreach ($postsId as $index => $value) {
+    if ($post['id'] == $value) {
+        $nextId = array_key_exists($index + 1, $postsId) ? $postsId[$index + 1] : null;
+        $prevId = array_key_exists($index - 1, $postsId) ? $postsId[$index - 1] : null;
+    }
+}
+// Комментарии
+$sqlQueryComments = 'SELECT comments.text, comments.user, comments.timestamp,
+                            users.name, users.surname, users.avatar_small
+                        FROM `comments` LEFT JOIN `users` ON comments.user = users.id
+                        WHERE comments.post = ?';
+$comments = R::getAll($sqlQueryComments, [$post['id']]);
 
 // Центральный шаблон для модуля
 ob_start();

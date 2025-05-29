@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/www/templates/blog/_pagination.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/modules/blog/add-comment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/blog/parts/comments-form.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/blog/parts/comments.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/templates/blog/parts/post-nav.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/modules/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/post-new.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/post-new.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/index.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-delete.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-delete.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-edit.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-edit.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/blog/post-new.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/blog/post-new.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/template.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/libs/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/libs/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/modules/blog/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/modules/profile/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/profile/edit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/all-posts.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/290-428630343238.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/290-791297043051.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/428630343238.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/usercontent/blog/791297043051.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/libs/resize-and-crop.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/libs/resize-and-crop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/libs/resize.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/libs/resize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/blog/single-post.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/blog/single-post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/blog/single-post.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/blog/single-post.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.index.php.executor&quot;: &quot;Debug&quot;,
-    &quot;PHP Script.index.php.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/VSProject/Sergey-Kozlov-developer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.index.php.executor": "Debug",
+    "PHP Script.index.php.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/User/VSProject/laravel-study",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin" />
@@ -114,6 +107,8 @@
       <workItem from="1747978397145" duration="10938000" />
       <workItem from="1748269050729" duration="2403000" />
       <workItem from="1748332428062" duration="5180000" />
+      <workItem from="1748347820745" duration="3569000" />
+      <workItem from="1748496949126" duration="11249000" />
     </task>
     <servers />
   </component>
