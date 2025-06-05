@@ -28,7 +28,8 @@ foreach ($postsId as $index => $value) {
 // Комментарии
 $sqlQueryComments = 'SELECT comments.text, comments.user, comments.timestamp,
                             users.name, users.surname, users.avatar_small
-                        FROM `comments` LEFT JOIN `users` ON comments.user = users.id WHERE comments.post = ?';
+                        FROM `comments` LEFT JOIN `users` ON comments.user = users.id
+                        WHERE comments.post = ?';
 $comments = R::getAll($sqlQueryComments, [$post['id']]);
 
 // Вывод похожих постов

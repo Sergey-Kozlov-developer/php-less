@@ -234,7 +234,7 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
         $_SESSION['errors'][]  = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>',];
     }
 
-    // 2.4 Проверка на формат файла
+    // 2.4 Проверка ошиьбки при загрузке
     if ($fileErrorMsg == 1) {
         $_SESSION['errors'][] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
     }
@@ -256,13 +256,61 @@ function saveUploadedImg($inputFileName, $minSize, $maxFileSizeMb, $folderName, 
         // 2. Обрезать до 48х48
         $resultSmallSize = resize_and_crop($fileTmpLoc, $filePathSmallSize, $smallSize[0], $smallSize[1]);
 
-
         if ($resultFullSize != true || $resultSmallSize != true) {
             $_SESSION['errors'][] = ['title' => 'Ошибка сохранения файла'];
             return false;
         }
 
         return [$db_file_name, $smallSize[0] . '-' . $db_file_name];
+    }
+}
+
+// saveUploadedFile('file', 12, 'contact-form');
+function saveUploadedFile($inputFileName, $maxFileSizeMb, $folderName)
+{
+
+    // 1. Записываем параметры файла в переменные
+    $fileName = $_FILES[$inputFileName]["name"];
+    $fileTmpLoc = $_FILES[$inputFileName]["tmp_name"];
+    $fileType = $_FILES[$inputFileName]["type"];
+    $fileSize = $_FILES[$inputFileName]["size"];
+    $fileErrorMsg = $_FILES[$inputFileName]["error"];
+    $kaboom = explode(".", $fileName);
+    $fileExt = end($kaboom);
+
+    // 2.2 Проверка на большой вес файла
+    if ($fileSize > ($maxFileSizeMb * 1024 * 1024)) {
+        $_SESSION['errors'][] = ['title' => 'Файл изображения не должен быть более 12 Mb'];
+    }
+
+    // 2.3 Проверка на формат файла
+    if (!preg_match("/\.(gif|jpg|jpeg|png|pdf|zip|rar|doc|docx)$/i", $fileName)) {
+        $_SESSION['errors'][]  = ['title' => 'Неверный формат файла', 'desc' => '<p>Файл должен быть в формате gif, jpg, jpeg, png, rar, zip, doc, docx, pdf.</p>',];
+    }
+    // 2.4 Проверка ошибки при загрузке
+    if ($fileErrorMsg == 1) {
+        $_SESSION['errors'][] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку'];
+    }
+
+    // Если нет ошибок - двигаемся дальше
+    if (empty($_SESSION['errors'])) {
+
+        // Прописываем путь для хранения файла
+        $fileFolderLocation = ROOT . "usercontent/{$folderName}/";
+
+        $db_file_name =
+            rand(100000000000, 999999999999) . "." . $fileExt;
+        $newFilePath = $fileFolderLocation . $db_file_name;
+
+        // Перемещаем загруженный файл
+        $result = move_uploaded_file($fileTmpLoc, $newFilePath);
+
+        if ($result != true) {
+            $_SESSION['errors'][] = ['title' => 'Ошибка сохранения файла'];
+            return false;
+        }
+
+        return [$db_file_name, $fileName];
     }
 }
 

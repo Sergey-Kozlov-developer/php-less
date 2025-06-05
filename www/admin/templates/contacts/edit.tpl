@@ -21,15 +21,11 @@
         </div>
 
         <div class="admin-form__item">
-            <label class="textarea__label mb-15" for="editor">Содержимое поста</label>
+            <label class="textarea__label mb-15" for="editor">Содержимое</label>
             <textarea name="about_text" class="textarea textarea--width-label" placeholder="Введите текст" id="about_text"><?= $contacts['about_text'] ?></textarea>
         </div>
 
-
-
-
         <h3 class="admin-section-title">Услуги</h3>
-
 
         <div class="admin-form__item">
             <label class="input__label">
@@ -39,11 +35,9 @@
         </div>
 
         <div class="admin-form__item">
-            <label class="textarea__label mb-15" for="editor">Содержимое поста</label>
+            <label class="textarea__label mb-15" for="editor">Содержимое</label>
             <textarea name="services_text" class="textarea textarea--width-label" placeholder="Введите текст" id="services_text"><?= $contacts['services_text'] ?></textarea>
         </div>
-
-
 
         <h3 class="admin-section-title">Контактные данные</h3>
 
@@ -55,7 +49,7 @@
         </div>
 
         <div class="admin-form__item">
-            <label class="textarea__label mb-15" for="editor">Содержимое поста</label>
+            <label class="textarea__label mb-15" for="editor">Содержимое</label>
             <textarea name="contacts_text" class="textarea textarea--width-label" placeholder="Введите текст" id="contacts_text"><?= $contacts['contacts_text'] ?></textarea>
         </div>
 

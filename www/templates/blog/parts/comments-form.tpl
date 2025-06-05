@@ -8,17 +8,13 @@
         <div class="page-post__comments-post-comment">
             <div class="post-comment">
                 <div class="post-comment__avatar">
-                        <div class="avatar-small">
-
-
+                    <div class="avatar-small">
                         <?php if (!empty($_SESSION['logged_user']['avatar_small'])): ?>
                             <img src="<?= HOST ?>usercontent/avatars/<?= $_SESSION['logged_user']['avatar_small'] ?>" alt="Аватарка" />
                         <? else: ?>
                             <img src="<?= HOST ?>usercontent/avatars/no-avatar.svg" alt="Аватарка" />
                         <? endif; ?>
-
                     </div>
-                    
                 </div>
                 <form action="<?=HOST?>add-comment" method="POST" class="post-comment__form">
                     <input type="hidden" name="id" value="<?=$post['id']?>">

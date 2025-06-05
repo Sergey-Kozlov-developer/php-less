@@ -66,14 +66,18 @@ switch ($uriModule) {
         require ROOT . "admin/modules/categories/delete.php";
         break;
 
-    // ::::::::::::::::::: OTHERS :::::::::::::::::::
+        // ::::::::::::::::::: OTHERS :::::::::::::::::::
 
     case 'contacts':
         require ROOT . "admin/modules/contacts/edit.php";
         break;
 
     case 'messages':
-        require ROOT . "admin/modules/contacts/messages.php";
+        require ROOT . "admin/modules/messages/all.php";
+        break;
+
+    case 'message':
+        require ROOT . "admin/modules/messages/single.php";
         break;
 
     default:

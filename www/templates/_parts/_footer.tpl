@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col section-footer__copyright">
                 <p>© Сергей Козлов</p>
-                <p>Pet проект 2025</p>
+                <p>Создано в 2022 году.</p>
             </div>
             <div class="col section-social-icons">
                 <div class="footer-icons"><a href="#"><img src="<?= HOST ?>static/img/favicons/youtube-brands.svg" alt="Youtube" width="30" height="21" /></a></div>

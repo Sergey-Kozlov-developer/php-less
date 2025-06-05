@@ -3,7 +3,7 @@
     <section class="page-post__comments">
 
         <div class="page-post__title">
-            <h2 class="heading"><?= count($comments) ?> комментариев</h2>
+            <h2 class="heading">Комментари к посту — <?= count($comments)?></h2>
         </div>
 
         <?php foreach ($comments as $comment) : ?>
@@ -22,11 +22,15 @@
                     </div>
                     <div class="comment__data">
                         <div class="comment__user-info">
-                            <div class="comment__username">
-                                <a href="<?=HOST?>profile/<?= $comment['user']?>">
-                                    <?= $comment['name'] ?> <?= $comment['surname'] ?>
-                                </a>
-                            </div>
+                            
+                            <?php if (!empty($comment['name']) || !empty($comment['surname'])): ?>
+                                <div class="comment__username">
+                                    <a href="<?=HOST?>profile/<?= $comment['user']?>">
+                                        <?= $comment['name'] ?> <?= $comment['surname'] ?>
+                                    </a>
+                                </div>
+                            <? endif; ?>
+
                             <div class="comment__date">
                                 <img src="<?= HOST ?>static/img/favicons/clock.svg" alt="Дата публикации" />
                                 <?php echo rus_date("j F Y, H:i", $comment['timestamp']); ?>

@@ -1,7 +1,6 @@
 <?php
 
-$contacts = R::load('contacts', 1);
-
+// Если форма отправлена
 if (isset($_POST['submit'])) {
 
     // Проверка на заполненность - Заголовок
@@ -16,20 +15,61 @@ if (isset($_POST['submit'])) {
 
     if (empty($_SESSION['errors'])) {
 
-        $contacts->about_title = $_POST['about_title'];
-        $contacts->about_text = $_POST['about_text'];
+        function trimElement ($item){
+            return trim($item);
+        }
 
-        $contacts->services_title = $_POST['services_title'];
-        $contacts->services_text = $_POST['services_text'];
+        $_POST = array_map('trimElement', $_POST);
 
-        $contacts->contacts_title = $_POST['contacts_title'];
-        $contacts->contacts_text = $_POST['contacts_text'];
+        $res[] = R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['about_title'], 'about_title']);
+        $res[] = R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['about_text'], 'about_text']);
 
-        R::store($contacts);
+        $res[] = R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['services_title'], 'services_title']);
+        $res[] = R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['services_text'], 'services_text']);
 
-        $_SESSION['success'][] = ['title' => 'Контакты успешно обновлены'];
+        $res[] =  R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['contacts_title'], 'contacts_title']);
+        $res[] = R::exec('UPDATE settings SET value = ? WHERE name = ? ', [$_POST['contacts_text'], 'contacts_text']);
+
+        // Сделать проверку. Если хотя бы 1 является пустым массивом, тогда - НЕ УСПЕХ!!!!
+        $fail = false;
+        foreach ($res as $value) {
+            if (is_array($value) && empty($value)) {
+                $fail = true;
+            }
+        }
+
+        // Проверка на ошибку при сохранении и вывод нтификации
+        if ($fail) {
+            $_SESSION['errors'][] = [
+                'title' => 'Данные не сохранились',
+                'desc' => 'Если ошибка повторяется, обратитесь к администратору сайта.'
+            ];
+        } else {
+            $_SESSION['success'][] = ['title' => 'Контакты успешно обновлены'];
+        }
+
     }
 }
+
+// Получаем массив с нужными настройками
+$settingsContacts = R::find('settings', ' section LIKE ? ', ['contacts']);
+
+// Для вывода в шаблоне нашими ключами должны стать значения из поля 'name':
+// about_title, about_text, services_title и т.д.
+// Значит надо сформировать новый массив с такими ключами из 'name' и значениями из 'value'
+
+// Создаем массив который наполним
+$contacts = [];
+
+foreach ($settingsContacts as $key => $value) {
+    $contacts[$value['name']] = $value['value'];
+}
+
+// print_r($contacts);
+// die();
+
+
+
 
 // Центральный шаблон для модуля
 ob_start();
