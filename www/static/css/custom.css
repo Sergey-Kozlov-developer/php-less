@@ -86,3 +86,42 @@ a.badge:hover {
     text-decoration: none;
     background-color: rgb(87, 87, 87);
 }
+
+.admin-section-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin: 30px -30px 20px;
+    padding: 15px 30px;
+    background-color: #efefef;
+}
+
+.block-contacts__info {
+    font-weight: 400;
+}
+
+.post-about-skills ul {
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    list-style: none;
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.post-about-skills li {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.post-about-skills li::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -14px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000000;
+}

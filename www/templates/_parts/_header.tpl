@@ -9,10 +9,10 @@
         <p class="section-header__content-subtitle">cайт IT специалиста</p>
         <nav class="nav">
             <ul class="nav__list">
-                <li class="nav__list-item"><a class="nav__list-item-link" href="about.html">Обо мне</a></li>
-                <li class="nav__list-item"><a class="nav__list-item-link" href="portfolio.html">Портфолио</a></li>
+                <li class="nav__list-item"><a class="nav__list-item-link" href="about">Обо мне</a></li>
+                <li class="nav__list-item"><a class="nav__list-item-link" href="portfolio">Портфолио</a></li>
                 <li class="nav__list-item"><a class="nav__list-item-link" href="<?=HOST?>blog">Блог</a></li>
-                <li class="nav__list-item"><a class="nav__list-item-link" href="contacts.html">Контакты</a></li>
+                <li class="nav__list-item"><a class="nav__list-item-link" href="contacts">Контакты</a></li>
             </ul>
         </nav>
     </div>
