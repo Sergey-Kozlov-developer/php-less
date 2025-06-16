@@ -44,7 +44,7 @@
                 Прикреплённый файл
             </label>
             <p>
-                <a href="<?= HOST ?>usercontent/contact-form/<?= $message['file_name_src'] ?>">
+                <a target="_blank" href="<?= HOST ?>usercontent/contact-form/<?= $message['file_name_src'] ?>">
                     <?= $message['file_name_original'] ?>
                 </a>
             </p>

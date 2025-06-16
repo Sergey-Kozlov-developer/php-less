@@ -10,34 +10,36 @@
 
         <table class="table">
             <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Отправитель</th>
-                    <th>Email</th>
-                    <th>Текст</th>
-                    <th>Время</th>
-                    <th>Файл</th>
-                    <th></th>
-                </tr>
+            <tr>
+                <th>ID</th>
+                <th>Отправитель</th>
+                <th>Email</th>
+                <th>Текст</th>
+                <th>Время</th>
+                <th>Файл</th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($messages as $message) : ?>
-                    <tr>
-                        <td><?= $message['id'] ?></td>
-                        <td>
-                            <a href="<?= HOST ?>admin/message?id=<?= $message['id'] ?>">
-                                <?= $message['name'] ?>
-                            </a>
-                        </td>
-                        <td><?= $message['email'] ?></td>
-                        <td><a href="<?= HOST ?>admin/message?id=<?= $message['id'] ?>"><?= $message['message'] ?></a></td>
-                        <td><?php echo rus_date("j.m.Y H:i", $message['time']); ?></td>
-                        <td><?= $message['file_name_original'] ?></td>
-                        <td>
-                            <a href="<?php echo HOST . "admin/"; ?>messages?action=delete&id=<?= $message['id'] ?>" class="icon-delete"></a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+            <?php foreach ($messages as $message) : ?>
+
+            <tr <?php echo $message['status'] === 'new' ? 'class="message-new"' : NULL; ?> >
+                <td><?= $message['id'] ?></td>
+                <td>
+                    <a href="<?= HOST ?>admin/message?id=<?= $message['id'] ?>">
+                        <?= $message['name'] ?>
+                    </a>
+                </td>
+                <td><?= $message['email'] ?></td>
+                <td><a href="<?= HOST ?>admin/message?id=<?= $message['id'] ?>"><?= $message['message'] ?></a></td>
+                <td><?php echo rus_date("j.m.Y H:i", $message['time']); ?></td>
+                <td><?= $message['file_name_original'] ?></td>
+                <td>
+                    <a href="<?php echo HOST . "admin/"; ?>messages?action=delete&id=<?= $message['id'] ?>"
+                       class="icon-delete"></a>
+                </td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

@@ -15,6 +15,9 @@ if ( !(isset($_SESSION['role']) && $_SESSION['role'] === 'admin') ) {
     exit();
 }
 
+// sidebar
+require ROOT . "admin/modules/sidebar/sidebar.php";
+
 /* ..........................................
 
 РОУТЕР // ROUTE - МАРШРУТ
@@ -78,6 +81,10 @@ switch ($uriModule) {
 
     case 'message':
         require ROOT . "admin/modules/messages/single.php";
+        break;
+
+    case 'settings':
+        require ROOT . "admin/modules/settings/settings.php";
         break;
 
     default:

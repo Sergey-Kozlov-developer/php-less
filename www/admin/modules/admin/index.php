@@ -1,5 +1,12 @@
 <?php
 
+$postsCount = R::count('posts');
+$categoriesCount = R::count('categories');
+$commentsCount = R::count('comments');
+$usersCount = R::count('users');
+$messagesTotalCount = R::count('messages');
+
+
 
 // Центральный шаблон для модуля
 ob_start();

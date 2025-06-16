@@ -14,5 +14,5 @@
 <?php if (isset($pageClass) && $pageClass === 'authorization-page') : ?>
 <body class="authorization-page">
 <?php else : ?>
-	<body class="sticky-footer <?php echo isset($pageClass) ? $pageClass : ''; ?>">
+	<body class="sticky-footer body-with-panel <?php echo isset($pageClass) ? $pageClass : ''; ?>">
 <?php endif; ?>

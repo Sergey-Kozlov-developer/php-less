@@ -26,9 +26,12 @@ if (isset($_POST['postSubmit'])) {
             // Обрабатываем картинку, сохраняем, и получаем имя файла
             $coverFileName = saveUploadedImg('cover', [600, 300], 12, 'blog', [1110, 460], [290, 230]);
 
-            // Сохраняем имя файла в БД
-            $post->cover = $coverFileName[0];
-            $post->coverSmall = $coverFileName[1];
+            if ($coverFileName) {
+
+                // Сохраняем имя файла в БД
+                $post->cover = $coverFileName[0];
+                $post->coverSmall = $coverFileName[1];
+            }
         }
 
         R::store($post);

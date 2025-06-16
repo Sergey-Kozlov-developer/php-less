@@ -54,11 +54,11 @@ if (isset($_POST['postEdit'])) {
                 if (file_exists(ROOT . 'usercontent/blog/' . $post->coverSmall) && !empty($user->coverSmall)) {
                     unlink(ROOT . 'usercontent/blog/' . $post->coverSmall);
                 }
+                // Сохраняем имя файла в БД
+                $post->cover = $coverFileName[0];
+                $post->coverSmall = $coverFileName[1];
             }
 
-            // Сохраняем имя файла в БД
-            $post->cover = $coverFileName[0];
-            $post->coverSmall = $coverFileName[1];
         }
 
         R::store($post);

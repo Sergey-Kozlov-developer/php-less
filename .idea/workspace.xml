@@ -5,20 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a406ab4-a6b6-4fdc-9c8e-5d68355a750a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/www/admin/modules/contacts/edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/admin/modules/contacts/messages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/admin/templates/contacts/edit.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/contacts/contacts.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/contacts/parts/about.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/contacts/parts/contacts.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/contacts/parts/form.tpl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/templates/contacts/parts/services.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/modules/settings/settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/modules/sidebar/sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/settings/sections/_copyright.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/settings/sections/_general.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/settings/sections/_socials.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/settings/sections/_status.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/settings/settings.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_blog.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_cats.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_contacts.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_exit.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_main.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_messages.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_profile.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/links/_settings.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/admin/templates/sidebar/sidebar.tpl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/modules/admin-panel/admin-panel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/modules/settings/settings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/static/img/control-panel/folder.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/static/img/control-panel/inbox.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/www/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/modules/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/edit.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/edit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/modules/blog/new.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/blog/new.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/modules/messages/single.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/modules/messages/single.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/_parts/_sidebar.tpl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/main/main.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/messages/all.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/messages/all.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/messages/single.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/messages/single.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/admin/templates/template.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/admin/templates/template.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/modules/contacts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/contacts/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/modules/main/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/modules/main/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/project (1).sql" beforeDir="false" afterPath="$PROJECT_DIR$/www/project (1).sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/static/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/www/static/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/_page-parts/_head.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/_page-parts/_head.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/_parts/_admin-panel.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/_parts/_admin-panel.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/_parts/_footer.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/_parts/_footer.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/templates/_parts/_header.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/_parts/_header.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/contacts/contacts.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/contacts/contacts.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/main/_about.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/main/_parts/_about.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/main/_blog.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/main/_parts/_blog.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/main/_portfolio.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/main/_parts/_portfolio.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/main/_status.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/main/_parts/_status.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/templates/main/main.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/www/templates/main/main.tpl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,27 +89,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.index.php.executor": "Debug",
-    "PHP Script.index.php.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/User/VSProject/Docker/php-less/www/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;PHP Script.index.php.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/VSProject/Docker/php-less/www/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.General&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\User\VSProject\Docker\php-less\www\templates" />
@@ -84,11 +117,11 @@
       <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\modules" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\templates\blog" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\modules\blog" />
-      <recent name="C:\Users\User\VSProject\Docker\php-less\www\libs" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\templates\main\_parts" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\modules" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\admin\templates" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\static\img\control-panel" />
+      <recent name="C:\Users\User\VSProject\Docker\php-less\www\static\css" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -119,6 +152,7 @@
       <workItem from="1748347820745" duration="3569000" />
       <workItem from="1748496949126" duration="17713000" />
       <workItem from="1749102421564" duration="4382000" />
+      <workItem from="1750054564107" duration="15083000" />
     </task>
     <servers />
   </component>

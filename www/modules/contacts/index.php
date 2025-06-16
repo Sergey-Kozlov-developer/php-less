@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
         $message->email = htmlentities($_POST['email']);
         $message->message = htmlentities($_POST['message']);
         $message->time = time();
+        $message->status = 'new';
 
         if (isset($_FILES['file']['name']) && $_FILES['file']['tmp_name'] !== '') {
             $file = saveUploadedFile('file', 12, 'contact-form');
