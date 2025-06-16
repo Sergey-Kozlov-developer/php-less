@@ -1,6 +1,6 @@
 <div class="admin-page__content-form">
 
-    <form class="admin-form" method="POST" action="<?= HOST ?>admin/category-edit?id=<?= $cat['id'] ?>">
+    <div class="admin-form" >
 
         <?php include ROOT . 'admin/templates/components/errors.tpl'; ?>
         <?php include ROOT . 'admin/templates/components/success.tpl'; ?>
@@ -56,5 +56,5 @@
         </div>
         <div class="admin-form__item"></div>
         <div class="admin-form__item"></div>
-    </form>
+    </div>
 </div>

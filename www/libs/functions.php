@@ -295,8 +295,17 @@ function saveUploadedFile($inputFileName, $maxFileSizeMb, $folderName)
     // Если нет ошибок - двигаемся дальше
     if (empty($_SESSION['errors'])) {
 
+
         // Прописываем путь для хранения файла
         $fileFolderLocation = ROOT . "usercontent/{$folderName}/";
+
+        // проверка есть ли директория contant-form
+        if (!is_dir($fileFolderLocation)) {
+            // если нет, то создаем
+            if (!mkdir($fileFolderLocation, 0755, true)) {
+                die("Не удалось создать директорию: " . $dir);
+            }
+        }
 
         $db_file_name =
             rand(100000000000, 999999999999) . "." . $fileExt;
